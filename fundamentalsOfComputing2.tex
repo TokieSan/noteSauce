@@ -1,0 +1,410 @@
+\title{Computer Science Courses Notes}
+\date{Sat, 13 Feb. 2021}
+\author{Ahmed Gamal Eltokhy}
+
+\documentclass{article}
+
+\usepackage{listings}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+
+\begin{document}
+
+\maketitle
+\pagenumbering{gobble}
+
+\newpage
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\part{Fundamentals of Computing II}
+\newpage
+
+\section{Before Midterm 1} 
+
+\subsection{Let's improve our Si by creating a neat template}
+
+\subparagraph{function.h}
+\begin{lstlisting}
+
+using namespace std;
+
+class Student {
+private:
+	char *name;
+	double **data;
+
+public:
+	double computeAnyThing();
+}:
+
+//Hi you're using vim and no one fix your shit, #include "function.cpp"
+//You can also \$ g++ -c *.cpp\ or make a fucking MakeFile
+\end{lstlisting}
+
+\subparagraph{function.cpp}
+\begin{lstlisting}
+
+#include "function.h"
+double Student::computeAnyThing() {
+	return 9.0;
+}
+
+\end{lstlisting}
+
+\subparagraph{main.cpp}
+\begin{lstlisting}
+	
+#include <iostream> //Any Library You Will use
+#include "function.h"
+
+int main {
+	Student S_1;
+	S_1.computeAnyThing();
+	return 0;
+}
+\end{lstlisting}
+
+\newpage
+\subsection{Static Shit}
+
+Static Variables get allocated during the lifetime of the project, so if the function was called multiple times, the static variable does not lose its value.
+
+\
+\begin{lstlisting}
+
+void demo() {  
+    static int count = 0; 
+    cout << count << " "; 
+    count++; 
+} 
+  
+int main() { 
+    for (int i=0; i<5; i++)     
+        demo(); 
+    return 0; 
+} 
+// Output: 0 1 2 3 4 
+\end{lstlisting}
+
+Static functions can be called without any object.
+
+\begin{lstlisting}
+class Test {
+    static int x;
+public:
+    Test() { x++; }
+    static int getX() {return x;}
+};
+ 
+int Test::x = 0;
+ 
+int main() {
+    cout << Test::getX() << " ";
+    Test t[5];
+    cout << Test::getX();
+}
+\end{lstlisting}
+
+ A static function is a special type of function which is used to access only static data, any other normal data cannot be accessed through static function.
+
+\newpage
+
+\subsection{Operators Overloading}
+You can redefine or overload most of the built-in operators available in C++. Thus, a programmer can use operators with user-defined types as well.
+
+\begin{lstlisting}
+class Box {
+   public:
+      double getVolume(void) {
+         return length * breadth * height;
+      }
+      void setLength( double len ) {
+         length = len;
+      }
+      void setBreadth( double bre ) {
+         breadth = bre;
+      }
+      void setHeight( double hei ) {
+         height = hei;
+      }
+      
+      // Overload + operator to add two Box objects.
+      Box operator+(const Box& b) {
+         Box box;
+         box.length = this->length + b.length;
+         box.breadth = this->breadth + b.breadth;
+         box.height = this->height + b.height;
+         return box;
+      }
+      
+   private:
+      double length;      // Length of a box
+      double breadth;     // Breadth of a box
+      double height;      // Height of a box
+};
+
+// Main function for the program
+int main() {
+   Box Box1;                // Declare Box1 of type Box
+   Box Box2;                // Declare Box2 of type Box
+   Box Box3;                // Declare Box3 of type Box
+   double volume = 0.0;     // Store the volume of a box here
+ 
+   // box 1 specification
+   Box1.setLength(6.0); 
+   Box1.setBreadth(7.0); 
+   Box1.setHeight(5.0);
+ 
+   // box 2 specification
+   Box2.setLength(12.0); 
+   Box2.setBreadth(13.0); 
+   Box2.setHeight(10.0);
+ 
+   // volume of box 1
+   volume = Box1.getVolume();
+   cout << "Volume of Box1 : " << volume <<endl;
+ 
+   // volume of box 2
+   volume = Box2.getVolume();
+   cout << "Volume of Box2 : " << volume <<endl;
+
+   // Add two object as follows:
+   Box3 = Box1 + Box2;
+
+   // volume of box 3
+   volume = Box3.getVolume();
+   cout << "Volume of Box3 : " << volume <<endl;
+
+   return 0;
+   /* Output:
+	*	Volume of Box1 : 210
+	*	Volume of Box2 : 1560
+	*	Volume of Box3 : 5400
+	*/
+\end{lstlisting}
+
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{./overloadingpossible.png}
+	\caption{Operators that can and cannot be overloaded, by tutorialspoint.com}
+\end{figure}
+
+\newpage
+
+\subsection{'this' operator}
+
+The compiler supplies an implicit pointer along with the names of the functions as ‘this’.
+The ‘this’ pointer is passed as a hidden argument to all nonstatic member function calls and is available as a local variable within the body of all nonstatic functions. 
+The 'this' operator can be used in some situations as:
+
+\subparagraph{Similarity in the names of local variable and class member}
+\
+\begin{lstlisting}
+class Test { 
+private: int x; 
+public: 
+   void setX (int x) { 
+       // The 'this' pointer is used to retrieve the object's x 
+       // hidden by the local variable 'x' 
+       this->x = x; 
+   } 
+   void print() { cout << "x = " << x << endl; } 
+}; 
+\end{lstlisting}
+
+\subparagraph{Returning a reference to the object called}
+\
+\begin{lstlisting}
+/* Reference to the calling object can be returned */ 
+Test& Test::func () { 
+   // Some processing 
+   return *this; 
+}  
+\end{lstlisting}
+
+When a reference to a local object is returned, the returned reference can be used to chain function calls on a single object.
+\
+\begin{lstlisting}
+class Test { 
+private:   int x, y; 
+public: 
+  Test(int x = 0, int y = 0) { this->x = x; this->y = y; } 
+  Test &setX(int a) { x = a; return *this; } 
+  Test &setY(int b) { y = b; return *this; } 
+  void print() { cout << "x = " << x << " y = " << y << endl; } 
+}; 
+int main() { 
+  Test obj1(5, 5); 
+  // Chained function calls.  All calls modify the same object 
+  // as the same object is returned by reference 
+  obj1.setX(10).setY(20); 
+  obj1.print(); 
+  return 0; 
+} 
+\end{lstlisting}
+
+\newpage
+
+\subsection{Copy Constructor}
+
+In case of copy constructor, you can copy without having a getter.
+
+\begin{lstlisting}
+//Here is passed by reference to avoid syntax error
+className::className(const className &s_1) { 
+	ID = s_1.ID //id here is private
+	// Let's assume you allocated memory here.
+	for(int i=0; i<2 i++) {
+		for(int j=0; j<2) {
+			*(*(some_2D_arr+i)+j) = *(*(s_1.some_2D_arr+i)+j);
+		}
+	}
+}
+// We don't 'className s_2(s_1)' cuz fuck shadow copying 
+// Shadow copying if you forget is when you directly copy directly 'p_1=p_2' while deep copying is '*p_1=*p_2' that dereference first
+// So, it will make confusion in pointers as it'll point at a wrong array
+\end{lstlisting}
+
+\newpage	
+
+\subsection{Inheritance}
+It's basically copying some data members or member functions from a \textbf{base class} to a new \textbf{derived cass}. 
+
+For instance, if we have a class names \textbf{administratorTeacher} that inherits from \textbf{Teacher, Administrator} classes, that is multiple inheritence. While if some class named \textbf{staff} that inherits one other class called \textbf{employee}, this is single inheritance. Also, if two classes inherit directly, this is called \textbf{Direct Inheritance}, but there are some inherited things from layers that were alreade inherited before, that is \textbf{Indirect Inheritance}.
+
+\begin{figure}[h]
+	\begin{subfigure}[b]{0.5\linewidth}
+			\includegraphics[width=\linewidth]{./multipleInheritenceExample.png}
+			\caption{Multiple Inheritance}
+			\label{inherit:tokhy_1}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.4\linewidth}
+			\includegraphics[width=\linewidth]{./directiheritenceExample.png}
+			\caption{Direct Inheritance}
+			\label{inherit:tokhy_2}
+		\end{subfigure}
+			
+\end{figure}
+
+\subsubsection{Public Inheritance}
+You can not change private data members, but you can use only the public setter functions.
+
+However, you can use "protected" instead of private. It let the function be private except for the derived classes.
+
+\begin{lstlisting}
+class vehicle { //base class
+	protected:
+	//If it was private, price wouldn't have been able to be played with.
+		int price; 
+	public:
+		vehicle(int a=0) {price = a;}
+		// The constructor itself does not get derived, but the shit in it gets executed, as allocating memory or setting some variables for some reason.
+};
+class car:public/*inheritance type*/ base { //derived class
+	public:
+		int getEGPPrice(){return price*15;}
+};
+\end{lstlisting}
+
+\subparagraph{Note that}
+
+You can call a function, for instance print() from the base class and add some parameters to it.
+
+\begin{lstlisting}
+void derivedClass::print() {
+	//You Can Print any extra code here
+	baseClass::print();
+}
+\end{lstlisting}
+
+\subparagraph{List Initializers}
+
+You can use initializer list in an inherited class for constructor initialization from the base class. You can see it in this example
+
+\begin{lstlisting}
+
+class Base {
+    int n;
+};   
+
+class Base_2{
+	int n2;
+}
+
+//EXAMPLE FOR MULTIPLE INHERITANCE AS WELL
+class derived : public Base, Base_2
+{
+    unsigned char x;
+    unsigned char y;
+    std::string s;
+ 
+    derived ( int x )
+      : Base { 1 }, // initialize base classes
+		 Base_2{ 2 },
+        x ( x ),      // x (member) is initialized with x (parameter)
+        y { 0 },      // y initialized to 0
+    {}                // empty compound statement
+ 
+};
+\end{lstlisting}
+\newpage
+
+\textbf{Note that} you can give the address of a derived class to a pointer of the base class.
+However, you'll run by the issue that if you call a function, print() for example, which is overwritten in the derived class, it will run the function in base class not the derived one.
+The solution for this issue is to add the keyword \textbf{virtual} before the function declaration in the derived class. This will make the pointer call the function in the derived. 
+
+\begin{lstlisting}
+class base{
+	public: virtual void print() {cout << "Base";}
+};
+class derived : public base {
+	public:	void print() {cout << "Derived";}
+};
+void main{
+	derived D1;
+	base *ptr = &D1;
+	ptr->print();
+}
+\end{lstlisting}
+
+Besides, the pure virtual function is the one where it has no data in the base class and only get one in the derived. Also, this type of base class is called abstract class and it has no constructors.
+
+\begin{lstlisting}
+class base{
+	public:
+		virtual char* getName() const = 0;
+};
+
+class derived : public base {
+	public:
+		char* getName() {
+			return "derived";	
+		}
+};
+\end{lstlisting}
+\end{document}

@@ -1,0 +1,245 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{ulem}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+\title{Physics 1 Notes}
+\date{Fri, 12 Feb. 2021}
+\author{Ahmed Gamal Eltokhy}
+
+\begin{document}
+\maketitle
+\pagenumbering{gobble}
+\newpage
+
+\tableofcontents
+\newpage
+
+\pagenumbering{arabic}
+
+\section{Motion}
+
+\subsection{Formulas} 
+
+\subparagraph{Displacement:} \[  \Delta x = x_2 - x_1 \\ \]
+\subparagraph{Average Velocity:} \[
+	\frac{ \Delta x }{ \Delta t}
+\]
+\subparagraph{Average Speed:}
+\[
+	\frac{Total \ Distance }{ \Delta t	}
+\]
+\subparagraph{Instantaneous Velocity:}
+\[
+	v_{ins} = \frac{ dx }{ dt } \quad	(slope)
+\]
+\subparagraph{Average Acceleration}
+\[
+	a_{avg} = \frac{ v_2-v_1 }{t_2-t_1  } = \frac{ \Delta v }{ \Delta t} \qquad \qquad
+	a_{ins} = \frac{ dv }{ dt }	
+\]
+
+\subparagraph{Constant Acceleartion} \
+
+If a particle is moving with constant acceleration, time to SUVAT.
+
+\[	v = v_0 + a t \qquad \xout{s} \]
+\[	s = v_0 t + \frac{ 1 }{ 2 } a t^2 \qquad  \xout{v} \]
+\[ v^2 = v_0^2 + 2 a s \qquad  \xout{t} \]
+\[	s = \left[ \frac{ v_0 + v }{2}  \right] t \qquad  \xout{a} \]
+\[	s = v t - \frac{ 1 }{ 2 } a t^2  \qquad \xout{v_0} \]
+
+There are five quantities, there is a law that does not include each of those quantities. Thus, in any problem you will have three quantities at least and you will be able to get the rest.
+
+\newpage
+
+\subsection{Questions}
+
+\begin{enumerate}[1.]
+	\item An object starts from rest at the origin and moves along the x axis with a constant acceleration of 4 m/s2. Its average velocity as it goes from x = 2 m to x = 8 m is:
+		\subparagraph{Solution}
+		We'll get the time for the whole trip, then time for the 2m trip, and get then the average velocity normally.
+		\[
+			s = v_0 t + \frac{ 1 }{ 2 } a t^2
+			, 8 = (0) t + \frac{1}{2} (4)(t)^2 \implies Total\ Time = 2s
+		\]
+
+		\[
+			2 = (0) t + \frac{1}{2} (4)(t)^2 \implies Time\ For\ First\ 2m = 1s
+		\]
+		\[
+			v_{avg} = \frac{ x_2 - x_1 }{  t_2 - t_1	} = \frac{ 8-2 }{ 2-1 } = 6\ m/s 	
+		\]
+
+	\item  At time t = 0 a car has a velocity of 16 m/s. It slows down with an acceleration given by -0.50t, in m/s2 for t in seconds. At the end of 4.0 s it has traveled:
+		\subparagraph{Solution}
+		This question is fairly simple, and it can be tricky. You will just integrate the acceleration function normally and equalize the formed velocity function to zero so you can get the time when the car rests. Note that C in x(t) is useless since the question asked for distance \textbf{traveled}.
+
+		\[
+			\int -0.5 t = \frac{ -0.5 t^2 }{ 2 } + C \implies \frac{ -0.5 (0)^2 }{ 2 } + C = 16 \implies C=16 \quad  (\ v(t)\ )
+		\]
+		\[	
+		\int v(t) = \frac{ -0.25 t^3 }{ 3 } + 16 t + C \implies at\ t=4, \frac{ -0.25 (4)^3 }{ 3 } + 16 (4) \approx 59 
+		\]
+
+	\item At a stop light, a truck traveling at 15 m/s passes a car as it starts from rest. The truck travels at constant velocity and the car accelerates at 3 m/s2. How much time does the car take tocatch up to the truck?
+
+		\subparagraph{Solution}
+		This one you will just equate the distance covered by truck to the distance covered by the car, at time they're equal, the shit is done.
+		\[
+			S_1	= S_2 \implies v_{truck} t = v_0 t + \frac{ 1 }{ 2 } a t^2 \implies 15 t = \frac{ 1 }{ 2 } (3) t^2 \implies t = 10s
+		\]
+	\item What is the average velocity for a ball thrown vertically in the first second?
+
+		\[
+			v_{av} = \frac{ v_0 + v_f }{ 2 } = \frac{ 0 + 9.8 }{ 2 } = 4.9 m/s 
+		\]
+
+		\newpage
+	\item An object is released from rest. How far does it fall during the second second of its fall?
+		\subparagraph{Solution}
+		This question is very easy, but it took an approach different to the one I usually take solving problems so here is it. The approach is to get the $ v_{avg} $  in the second second, then get the distance.
+
+		\[
+			v_{t=1} = g \qquad v_{t=2} = 2g \implies v_{avg 1->2}= \frac{ 3g }{ 2 }  	
+		\]
+		\[
+			d_{t_1->t_2} = v_{avg} (t) = \left( \frac{ 3g }{ 2 }  \right	) (1) = 14.7m	
+		\]
+
+	\item An object is thrown vertically upward with a certain initial velocity in a world where the acceleration due to gravity is 19.6 m/s2. The height to which it rises is \_\_\_\_ that to which the object would rise if thrown upward with the same initial velocity on the Earth. Neglect friction.
+		\subparagraph{Solution}
+		This question also is fairly easy but maybe tricky if you pushed solving. You will instantly remember $ s = v_0 t + \frac{1}{2} a t^2 $  	 where you will think that since acceleration is twice of that of earth so the height will be twice, but remember that time will change and it has the power of the second power.
+		\[
+			a_1 t^2 = k\ a_2 t^2 \qquad t = \frac{v}{a} \implies (19.6) \left( \frac{1}{19.6} \right)^2 = k (9.8) \left( \frac{1}{9.8}  \right)^2 \implies k = \frac{1}{2} \quad \#
+		\]
+\end{enumerate}
+\newpage
+
+\section{Vectors}
+For this chapter, go visit my notes for calculus, the part of Calculus 2, chapter 1. However, I'll add the TL;DR here.
+
+\subsection{Formulas}
+
+The Scalar Components of $ \vec{ a } $, where $\theta$ is the angle between $ \vec{ a }$ and the $ xW- axis $.
+\[
+	a_x = a \cos{ \theta } \qquad \qquad a_y = a \sin{ \theta }  \qquad \qquad direction:\ \tan{ \theta } =\frac{a_y}{a_x}.
+\]
+Where the magnitude $a$ can be got using $ a = \sqrt{ a_x^2 + a_y^2 } $
+
+\
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\textwidth]{./vectorsaddtion.png}
+	\caption{Vectors Addtion}
+	\label{fig:-vectorsaddtion-png}
+\end{figure}
+
+Writing any more shit in this chapter will be beyond pathetic, just go check the calculus 2 notes, they're fresh as hell.
+
+I will include the motion, aka using vectors for real life shit, as a new subsection rather than a whole new section.
+
+\newpage
+
+\subsection{Motion in 2D \& 3D}
+
+You will notice a major similarity with the normal motion stuff, but since we're in dd, we'll use vectors. Where $ \vec{ r } $ is the displacement:
+
+\[
+	\vec{ v_{avg} } = \frac{ \varDelta \vec{ r } }{ \varDelta t } 
+	\qquad  
+	\vec{ v_{inst.} } = \frac{ d \vec{ r } }{ dt } \qquad \vec{ v } = v_x \vec{ i } + v_y \vec{ j } + v_z \vec{ k } = \frac{dx}{dt} \vec{ i } + \frac{dy}{dt} \vec{ j } + \frac{dz}{dt} \vec{ k }
+\]
+
+\[
+	\vec{ a }_{avg} = \frac{ \vec{ v_2 } -  \vec{ v_1} } { \varDelta t	 } = \frac{ \varDelta	\vec{ v } }{ \varDelta t }
+	\qquad \vec{ a }_{inst} = \frac{ d \vec{ v } }{ dt } 
+\]
+
+\subsubsection{Projectile Motion}
+Welcome bitch, we have now acceleration on the negative direction due to gravity. It's along y axis only. We can write the normal equations of motion in some different way here. $ \theta $ is the angle measured from the horizontal $ x-$axis 
+
+\[	v_y = v_0 ( \sin{ \theta }  ) - g t \]
+\[	\varDelta y = (v_0 \sin{\theta}) t - \frac{ 1 }{ 2 } g t^2 \]
+\[ v_y^2 = (v_0 \sin{\theta})^2 - 2 g \varDelta y \]
+\[
+	\varDelta x = (v_0 \cos{\theta}) t	
+\]
+
+On the other hand, the trajectory path of a particle in the projectile equation is
+
+\[
+	y = ( \tan{ \theta } )x - \frac{ gx^2 }{ 2(v_0 \cos{ \theta } )^2  } 
+\]
+
+To get the horizontal range $R$ 
+\[
+	R = \frac{ v_0^2 }{g  } \sin{ 2 \theta }  
+\]
+
+\textbf{Remember} There is constant horizontal motion and vertical motion which can be got using the normal component laws. 
+
+\subsubsection{Circular Motion}
+
+A particle moving along a circular path with radius $ r $, with constant acceleration $a $
+\[
+	a = \frac{v^2}{r}
+\]
+With $ \vec{ a } $ directed towards center  of the circular path. Also, the period (time) of revolution can be got using 
+\[
+	T = \frac{ 2 \pi r }{v}
+\]
+
+\subsubsection{Questions}
+\begin{enumerate}[1.]
+	\item A  child  whirls  a  stone  in  a  horizontal  circle 1.9 m above  the  ground  by  means  of  a string 1.4 m long.  The  string  breaks,  and  the  stone  flies  off  horizontally,  striking  the ground 11 m away.  What  was  the  centripetal  acceleration  of  the  stone  while  in  circular motion? 
+		\subparagraph{Solution} For this question, when the string breaks the stone moves in a projectile motion with initial velocity $ v_i $. To answer, just analyze the projectile to get the velocity. The acceleration along x-axis is zero (only acceleration is g)
+
+		\[
+			s_x = v_i \cos{ \theta }  t+  \frac{1}{2} a_x t^2 \implies 11 = v_i \cos{ 0 } t - \frac{1}{2} (0) t^2 \implies 11 = v_i t
+		\]
+		\[
+			s_x = v_i \cos{ \theta } t - \frac{1}{2} g t^2 \implies -1.9 = v_i \cos{ \frac{\pi}{2} } t - 4.9 t^2 \implies t =  0.6227\ s
+		\]
+		From the previous two equations
+		\[
+			v_i = 17.665\ m / s
+		\]
+		\[
+			a = \frac{v^2}{r} = \frac{17.665^2}{1.4} = 222.89\ m / s^2
+		\]
+
+	\item A particle started a journey in a plane with a constant acceleration pointing towards the east with an initial speed of 5 m/s. If the total displacement through the journey is along the north direction, calculate the final speed of the particle.
+		\subparagraph{Solution}
+		\[
+			\vec{ a } = \frac{ d \vec{ v } }{ dt } = \frac{ d\vec{ v } }{ d \vec{ r } }\ .\ \frac{ d \vec{ r } }{ dt } \qquad \&\ \vec{ v }= \frac{ d \vec{ r } }{ d t }  \implies \vec{ a } = \frac{ d \vec{ v } }{ d \vec{ r } }\ .\ \vec{ v }   \qquad \qquad  (0)
+		\]
+
+		\[
+			\int^{r_f}_{r_i} \vec{ a }\ d \vec{ r } = \vec{ a } \ . \   (r_f-r_i) \qquad \qquad (1)
+		\]
+		\[
+			\int^{v_f}_{v_i} \vec{ v }\ d \vec{ v }  =  \frac{v_f^2 - v_i^2 }{2} \qquad \qquad (2)
+		\]
+		\[
+			\vec{ a } (r_f - r_i) =  \frac{v_f^2 - v_i^2 }{2} \qquad  \qquad (3)
+		\]
+
+
+		From 0, 1, 2, 3, and since total displacement is in north, and acceleration is in east, then angle between them is $ \pi /2 $, and $ \vec{ a }\ .\ \varDelta r = 0 $
+		\[
+			\implies v_f^2 = v_i^2 \implies v_f = v_i = 5\ m / s
+		\]
+
+
+\end{enumerate}
+
+
+
+
+\end{document}
