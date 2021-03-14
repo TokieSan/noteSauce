@@ -164,12 +164,24 @@ You will notice a major similarity with the normal motion stuff, but since we're
 \subsubsection{Projectile Motion}
 Welcome bitch, we have now acceleration on the negative direction due to gravity. It's along y axis only. We can write the normal equations of motion in some different way here. $ \theta $ is the angle measured from the horizontal $ x-$axis 
 
-\[	v_y = v_0 ( \sin{ \theta }  ) - g t \]
-\[	\varDelta y = (v_0 \sin{\theta}) t - \frac{ 1 }{ 2 } g t^2 \]
-\[ v_y^2 = (v_0 \sin{\theta})^2 - 2 g \varDelta y \]
+For constant speed, we use $ d = vt $. For constant acceleration we use these equations and in projectile we plug them for $x$ and $  y$ directions
+
 \[
-	\varDelta x = (v_0 \cos{\theta}) t	
+	v_f	=v_0+at
 \]
+\[
+	v_f^2=v_0^2+2ad
+\]
+\[
+	d = \frac{1}{2} (v_0+v_f)t \implies d = v_{avg}t
+\]
+\[
+	d = v_0t+\frac{1}{2}at^2
+\]
+\[
+	\implies h = \frac{1}{2}at^2 \qquad \qquad R = v_xt
+\]
+
 
 On the other hand, the trajectory path of a particle in the projectile equation is
 
@@ -177,7 +189,7 @@ On the other hand, the trajectory path of a particle in the projectile equation 
 	y = ( \tan{ \theta } )x - \frac{ gx^2 }{ 2(v_0 \cos{ \theta } )^2  } 
 \]
 
-To get the horizontal range $R$ 
+To get the horizontal range $R$ we also manipulate till
 \[
 	R = \frac{ v_0^2 }{g  } \sin{ 2 \theta }  
 \]
@@ -193,7 +205,7 @@ A particle moving along a circular path with radius $ r $, with constant acceler
 \[
 	a = \frac{v^2}{r}
 \]
-With $ \vec{ a } $ directed towards center  of the circular path. Also, the period (time) of revolution can be got using 
+With $ \vec{ a } $ directed towards center  of the circular path, and $ \vec{ v } $ is perpendicular to the acceleration vector. The period of revolution can be got using 
 \[
 	T = \frac{ 2 \pi r }{v}
 \]
@@ -207,7 +219,7 @@ With $ \vec{ a } $ directed towards center  of the circular path. Also, the peri
 			s_x = v_i \cos{ \theta }  t+  \frac{1}{2} a_x t^2 \implies 11 = v_i \cos{ 0 } t - \frac{1}{2} (0) t^2 \implies 11 = v_i t
 		\]
 		\[
-			s_x = v_i \cos{ \theta } t - \frac{1}{2} g t^2 \implies -1.9 = v_i \cos{ \frac{\pi}{2} } t - 4.9 t^2 \implies t =  0.6227\ s
+			s_y = v_i \cos{ \theta } t - \frac{1}{2} g t^2 \implies -1.9 = v_i \cos{ \frac{\pi}{2} } t - 4.9 t^2 \implies t =  0.6227\ s
 		\]
 		From the previous two equations
 		\[
@@ -239,6 +251,22 @@ With $ \vec{ a } $ directed towards center  of the circular path. Also, the peri
 			\implies v_f^2 = v_i^2 \implies v_f = v_i = 5\ m / s
 		\]
 
+		\
+	
+\item  A jet plane in straight horizontal flight passes over your head. When it is directly above you, the sound seems to come from a point behind the plane in a direction 30 degrees from the vertical.
+The speed of the plane is
+\subparagraph{Solution}
+		If the plane is a distance d directly overhead when you heard the sound, the sound waves must have traveled a distance $\frac{d}{\cos(30)} = \frac{2d}{ \sqrt{ 3 } } $.  The plane has traveled $d\tan(30) = \frac{d}{\sqrt{3}}$, which is half the distance the sound waves traveled.  Therefore the plane's speed is half the speed of sound.
+
+\item An airplane makes a gradual 90◦ turn while flying at a constant speed of 200 m/s. The process takes 20.0 seconds to complete. For this turn the magnitude of the average acceleration of the plane is?
+	\subparagraph{Solution}
+		Since $ v_i=200 \vec{ i } $ and $ v_f = 200 \vec{ j } $, therefore $ a_{avg}= \frac{ \varDelta v }{ \varDelta t } = \frac{ 200 \vec{ j }- 200 \vec{ i } }{ 20 } = <-10,10> \implies |a_{avg}| = \sqrt{ 10^2 + 10^2 } $  
+
+\item A boat is traveling upstream at 14 km/h with respect to a river that is flowing at 6 km/h (with
+respect to the ground). A man runs directly across the boat, from one side to the other, at
+6 km/h (with respect to the boat). The speed of the man with respect to the ground is:
+\subparagraph{Solution}
+Pythagoras. Net velocity is  8 m/s, velocity of the guy is 6 m/s perpendicular to the first one. Use Pythagoras and you'll get 10 m/s. Easy as fuck.
 
 \end{enumerate}
 

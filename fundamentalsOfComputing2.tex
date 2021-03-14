@@ -8,6 +8,7 @@
 \usepackage{color}
 \usepackage{graphicx}
 \usepackage{subcaption}
+\usepackage{enumerate}
 
 \lstset{frame=tb,
   language=Java,
@@ -47,7 +48,53 @@
 
 \section{Before Midterm 1} 
 
-\subsection{Let's improve our Si by creating a neat template}
+\subsection{Review}
+
+\subsubsection{char, string}
+\subparagraph{cctype.h} Includes tolower(char x), toupper(char x), isupper(char x), is alpha(char x), etc.
+
+\subparagraph{string}
+\
+
+str.length() returns length, str.at(i) return the $ i^{th} $  character of string, 
+
+str.erase(i, n) erases n characters after the index $ i $, 
+
+str.substr(i, n) returns substring of n characters after the $ i^{th} $ character, 
+
+str.replace(i, n, newstr) replaces n characters $ i^{th} $ with the string newstr, 
+
+str.empty() check if a string is empty,
+
+str.swap(str2) swap str with str2, 
+
+str.find(char/ str) return char's index, or substring's first character index. If not found return length, 
+
+str.assign(str2, i, n) assign n characters starting from the $ i^{th} $ in str2 to str, 
+
+str.insert(i, str2) add str2 to str after the location $ i $ in str, 
+
+str.append(str2) append str2 to str, str.c\_str() returns a C\_style char*. 
+
+atoi(str.c\_str()) returns string numeric (integer), atol does long, atof float
+
+\subsubsection{enum}
+See this example
+\begin{lstlisting}
+enum day {Sun, Mon, Tue, Wed, Thu, Fri, Sat};
+day x;
+x = Fri;
+cout << x;		//5
+if (x == Sunday) cout << "Sunday";
+
+enum nums{one = 1, two, three, four};
+nums x = one; // x = 1
+nums y = two; // y = 2
+\end{lstlisting}
+
+You can now guess that bool is an enum of true and false.
+
+\subsection{Let's improve our Si by creating a neat code}
 
 \subparagraph{function.h}
 \begin{lstlisting}
@@ -93,9 +140,8 @@ int main {
 \newpage
 \subsection{Static Shit}
 
-Static Variables get allocated during the lifetime of the project, so if the function was called multiple times, the static variable does not lose its value.
+Static elements are allocated storage only once in a program lifetime in static storage area. And they have a scope till the program lifetime.
 
-\
 \begin{lstlisting}
 
 void demo() {  
@@ -112,6 +158,38 @@ int main() {
 // Output: 0 1 2 3 4 
 \end{lstlisting}
 
+\begin{lstlisting}
+class Abc{
+    int i;
+    public:
+	Abc(){
+        i=0;
+        cout << "constructor";
+    }
+	~Abc(){
+        cout << "destructor";
+    }
+};
+
+void f(){
+    static Abc obj;
+}
+
+int main()
+{
+    int x=0;
+    if(x==0)    {
+        f();
+    }
+    cout << "END";
+}
+//Output will be Constructor END Destructor 
+//This happens because lifetime of an object is same of the program
+\end{lstlisting}
+
+Static data members are shared between the objects and must be initialized explicitly outside the class not to get linker error. Also, they can not redefined by user. 
+
+
 Static functions can be called without any object.
 
 \begin{lstlisting}
@@ -125,15 +203,52 @@ public:
 int Test::x = 0;
  
 int main() {
-    cout << Test::getX() << " ";
-    Test t[5];
-    cout << Test::getX();
+    cout << Test::getX() << " "; // 0
+    Test t[5]; // iterates on the constructor of test 5 times
+    cout << Test::getX(); // 5
 }
 \end{lstlisting}
 
  A static function is a special type of function which is used to access only static data, any other normal data cannot be accessed through static function.
 
 \newpage
+
+\subsection{Classes Notes}
+
+If no explicit destructor in a class, compiler create an empty destructor.
+Constructors and destructors are called implicitly by compiler
+
+\paragraph{Order of calls }
+\begin{enumerate}[1.]
+\item When execution enters scope of object constructor is called
+\item When execution exits scope of object destructor is called or exit is called
+\item Destructor is not called if program ends with abort
+\end{enumerate}
+
+A const object is not modifiable, can only call const member functions, can not modify an object. Const objects can not have setters or non const getters as well.
+
+Constant functions do not modify objects, and they are declared as: 
+
+\textbf{ int getNum() const \{return num;\} }
+
+Note that non-const cosntructor can initialize a const object.
+
+In short, const member functions can be used for all class objects, but must be used for const class objects. 
+
+Const data members must be initialized using initializer list.
+
+\begin{lstlisting}
+class Increment{
+	int cnt;
+	const int val;
+	public:
+		Increment(int c=0; int i=1):
+		cnt(c), // Initializer list can be done for normal integers
+		val(i){ // But must be done for const integers
+			//empty body
+		} 
+}
+\end{lstlisting}
 
 \subsection{Operators Overloading}
 You can redefine or overload most of the built-in operators available in C++. Thus, a programmer can use operators with user-defined types as well.
@@ -290,6 +405,24 @@ className::className(const className &s_1) {
 // So, it will make confusion in pointers as it'll point at a wrong array
 \end{lstlisting}
 
+\subsection{Templates}
+
+This concept is so fucking simple, it's basically to make types of functions agnostic. Also, the syntax is fairly easy
+
+\begin{lstlisting}
+template <class X>
+X absolute(X n) {
+	n<0 ? return (-n) : return n;
+}
+// Multiple types in a template
+template <class T_1, class T_2>
+T_1 function(T_2 a, T_2 b) {
+	return doAnyShit(a,b);
+}
+\end{lstlisting}
+
+There is some situations as template specialization for some types (each type has its own functions in the class), and static members. For the second situation, each specialization has its own copy of static data members and member functions, and they are shared between all objects. For the first situation, I'll add an example here
+
 \newpage	
 
 \subsection{Inheritance}
@@ -311,6 +444,12 @@ For instance, if we have a class names \textbf{administratorTeacher} that inheri
 			
 \end{figure}
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./typesofinheritance.png}
+	\caption{Types of Inheritance}
+	\label{fig:-typesofinheritance-png}
+\end{figure}
 \subsubsection{Public Inheritance}
 You can not change private data members, but you can use only the public setter functions.
 
@@ -393,6 +532,7 @@ void main{
 \end{lstlisting}
 
 Besides, the pure virtual function is the one where it has no data in the base class and only get one in the derived. Also, this type of base class is called abstract class and it has no constructors.
+However, it is totally different from the normal virtual.
 
 \begin{lstlisting}
 class base{
@@ -407,4 +547,12 @@ class derived : public base {
 		}
 };
 \end{lstlisting}
+
+\newpage
+\begin{figure}[h] 
+	\centering{
+\includegraphics[scale=0.75]{./UML_Cheatsheet.pdf}
+	}
+\end{figure}
+
 \end{document}

@@ -6,6 +6,25 @@
 \usepackage{amssymb}
 \usepackage{ulem}
 \usepackage{enumerate}
+\usepackage{pdfpages}
+\usepackage{soul}
+
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arcCot}
+\DeclareMathOperator{\arccsc}{arcCsc}
+\DeclareMathOperator{\arccosh}{arcCosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\arccsch}{arcCsch}
+\DeclareMathOperator{\arccoth}{arcCoth} 
+
+
+\newcommand\longdiv[2]{%
+$\strut#1$\kern.25em\smash{\raise.3ex\hbox{$\big)$}}$\mkern-8mu
+        \overline{\enspace\strut#2}$}
 
 \title{Calculus Notes}
 \date{Fri, 12 Feb. 2021}
@@ -24,15 +43,15 @@
 \part{Calculus II}
 \newpage
 
-\section{Vectors: The whole shit}
+\section{Vectors}
 
 \subsection{The 3D space}
 
-When you have a constant in 3D shit, then the graph will have a plane parallel to the base the unit vector is perpendicular to.
+When you have a constant in 3D, then the graph will have a plane parallel to the base the unit vector is perpendicular to.
 
 e.g. for the equation $x^2+y^2=25, z=-8$ all points will lie in the horizontal plane of $z=-8$. Also, since $x^2+y^2=25$ then the graph will have the region with all points lying on a circle with radius $\sqrt{25}$.
 
-\paragraph{Common Sense Shit:}
+\paragraph{Common Sense Facts:}
 
 If $A(x,y,z)$ and $B(h,k,l)$, then $\vec{AB}$ will be $AB(h-x, k-y, l-z)$.
 
@@ -275,7 +294,7 @@ Notice that the cross product is not commutative.
 \paragraph{Famous examples}
 \subparagraph{The Parallelepiped}
 The volume of that figure equals the product between the base and attitude. Thus, we have three vectors $ \vec{ v }, \vec{ u }, \vec{ w } $, the volume can be calculated by getting the cross product of the base (any two of the three vectors). Then, the volume will be the dot product of both the cross product and the third vector, as known as the triple scalar product.
-It can also be used to find whether some vectors are coplaner; (that triple shit will equal 0)
+It can also be used to find whether some vectors are coplaner; (that triple product will equal 0)
 \begin{equation*}
 	( \vec{ v } \times \vec{ u } ) . \vec{ w }
 \end{equation*}
@@ -290,6 +309,11 @@ However, in the case the question gave you three vectors directly, you can just 
 	\right)
 \end{equation*}
 
+\begin{enumerate}[1.]
+	\item For any vectors u and v in V3 and any scalar k, k(u × v) = (ku) × v.
+\item For any vectors u and v in V3, (u + v) × v = u × v.
+ 
+\end{enumerate}
 \subparagraph{Distance between a line and a point}
 \[
 	\frac{| \vec{ u } \times \vec{ v }| }{ | \vec{ v } | } 
@@ -326,7 +350,7 @@ Let's let $\vec{ L } = \vec{ P_0P}$ where $ P_0(x_0,y_0,z_0) \& P(x,y,z) \implie
 \paragraph{Some Important Points}
 If one direction is 0, then the line is a plane. If $a=0 \implies x=x_0 $ and the line lies in $x=x_0$ plane, parallel to the yz-plane. 
 
-For the direction vector, you do any scalar multiplication to make the shit easier. You can multiple or divide by some constants for the direction vector \textbf{except} when you're dealing with the distance.
+For the direction vector, you do any scalar multiplication to make the thing easier. You can multiple or divide by some constants for the direction vector \textbf{except} when you're dealing with the distance.
 
 If a / b / c equals zero, you'll write the symmetric equation with z as constant.
 
@@ -498,7 +522,7 @@ Two planes parallel to a line are not necessarily parallel.
 		\textbf{Remember}, that was in case the equations are
 		\[ ax + by + cz + d_1 = 0\ \qquad \qquad  ax + by + cz + d_2 = 0 \]
 	\item \textbf{Containing skew lines between parallel planes + get the distance}
-		Get direction vectors of lines, denoted $ \vec{ v_1 }, \vec{ v_2} $. Then get the common normal easily by $ \vec{ n }= \vec{ v_1 } \times \vec{ v_2 }$. Use points from lines, denoted $P_1, P_2$, and take the normal with each independant point to find the equation of planes. Then, after finding the equations you can get the distance between them using the method in the previous question.
+		Get direction vectors of lines, denoted $ \vec{ v_1 }, \vec{ v_2} $. Then get the common normal easily by $ \vec{ n }= \vec{ v_1 } \times \vec{ v_2 }$. Use points from lines, denoted $P_1, P_2$, and take the normal with each independent point to find the equation of planes. Then, after finding the equations you can get the distance between them using the method in the previous question.
 
 	\item \textbf{Find an equation of the plane} that passes through the line of intersection of the planes $x - z = 2$ and $y + 4z = 3$ and is perpendicular to the plane $x+y-4z=5$
 
@@ -571,6 +595,7 @@ Two planes parallel to a line are not necessarily parallel.
 	\item If given a line perpendicular to other line, and you have only a point on the line and the equation of the other, get a vector that connects the two points and using formula known in projections  
 		$	orth_a \vec{ b } = \vec{ b } - proj_a \vec{ b }$. Now you have a direction and a point, voila!
 
+		\item To prove that 4 points are coplaner, proof that the volume of the parallelepiped formed by them equals 0.
 
 \end{enumerate}
 
@@ -597,7 +622,7 @@ The most famous inverse function is the logarithm, which can be obtained from th
 \[
 	b^y=x \implies \log_bx=y
 \]
-We can get many identities off that shit as $ \log_b{b^x}=x$ for $x \in \mathbb{R}$. Also, $b^{\log_b{x}}=x$ for $x>0$. Also, $\log_b{xy}=\log_bx+\log_by$ and same for division but it will be subtraction. Plus, $\log_b{x}= \frac{ \ln{x} }{ \ln{b} }.$
+We can get many identities off that thing as $ \log_b{b^x}=x$ for $x \in \mathbb{R}$. Also, $b^{\log_b{x}}=x$ for $x>0$. Also, $\log_b{xy}=\log_bx+\log_by$ and same for division but it will be subtraction. Plus, $\log_b{x}= \frac{ \ln{x} }{ \ln{b} }.$
 
 \subsection{Inverse trigonometry}
 
@@ -667,11 +692,11 @@ With some other proofs, you'll find that
 	\item cosh is an even function.
 	\item $	\sinh x = \frac{ e^x - e^{-x}}{ 2  }$
 	\item $	\cosh x = \frac{ e^x + e^{-x}}{ 2} $
-\item $	csch x = \frac{1}{\sinh x} $
-\item ${sech} = \frac{1}{\cosh x} $
-\item $ cot{h}\ x = \frac{\cosh x}{\sinh x} $ 
+\item $	\csch x = \frac{1}{\sinh x} $
+\item ${\sech} = \frac{1}{\cosh x} $
+\item $ \cot{h}\ x = \frac{\cosh x}{\sinh x} $ 
 \item $ \cosh^2 x - \sinh^2x = 1 $
-\item $sech^2 x = 1- \tanh x$
+\item $\sech^2 x = 1- \tanh x$
 \item $ \sinh(x+y) = \sinh x \cosh y + \cosh x \sinh y $
 \item $ \cosh(x+y) = \cosh x \cosh y + \sinh x \sinh y $
 \item $ \sinh(2x) = 2 \sinh x \cosh x$ 
@@ -684,7 +709,7 @@ With some other proofs, you'll find that
 \item 		
 $	\frac{d}{dx} \sinh x = \cosh x $
 \item $ \frac{d}{dx} \cosh x = \sinh x $ 
-	\item $ \frac{d}{dx} \tanh x = \frac{1}{\cosh^2 x} - sech^2 x $
+	\item $ \frac{d}{dx} \tanh x = \frac{1}{\cosh^2 x} - \sech^2 x $
 		\item $ \frac{d}{dx} \csc h x = - \csc h x \cot h x $ 
 			\item $ \frac{d}{dx} \sec h x = - \sec h x \tanh x $ 
 				\item $ \frac{d}{dx} \cot h = - \csc h ^2 x $
@@ -705,7 +730,9 @@ $	\frac{d}{dx} \sinh x = \cosh x $
 		\item $ \frac{d}{dx} \csc h^{-1}x = -\frac{1}{|x| \sqrt{ x^2+1 }} $
 		\item $ \frac{d}{dx} \cot h^{-1} = \frac{1}{1-x^2}$
 
+\end{enumerate}
 \newpage
+
 
 \section{More Integration}
 
@@ -787,22 +814,250 @@ So by letting $u= \frac{ \pi x  }{ 2 } \implies du = \frac{\pi}{2} dx$. Now you 
 	= \int^4_{-4} x  \sqrt{ 16-x^2 } + \int^4_{-4} 4  \sqrt{ 16-x^2 } = 0 + \int^4_{-4} 4  \sqrt{ 16-x^2 }
 		\]
 		Now, solution will be intuitive a bit since we know that this is the equation of a semicircle with radius $ \sqrt{16} $ multiplies by 4 $ \implies \int = 4 \frac{ (\pi 4^2) } {2} = 32\pi  $.
+\subsection{Integration by substitution}
 
+It is derived from the product rule by integrating its normal formula. Proof is left as exercise.
+
+\[
+	\int f(x). g'(x)\ dx=f(x).g(x)-\int g(x).f'(x) dx
+\]
+\[
+	\int u dv = u.v - \int v du 
+\]
+
+Choose $ u $so that $ \int{v}$ is possible and $ \frac{d}{dx} u $ is simple. See the example:
+\[
+	\int x e^x\ dx \qquad \qquad \qquad u = x \qquad du = dx \qquad  v = \int e^x
+\]
+\[
+	xe^x- \int e^x dx  = xe^x-e^x+C
+\]
+
+\subsubsection{Questions}
+
+\[
+	\int^{\sqrt{\pi}}_{\sqrt{\frac{\pi}{2}}} \theta^3 \cos{ \theta^2 }\ d \theta  
+\]
+\subparagraph{Solution}
+First, you will apply integration by u-substitution using $ t = \theta^2 \implies dt = 2\theta d \theta$  
+
+\[
+\frac{1}{2}	\int^{\pi}_{\frac{\pi}{2}} t \cos{ t }\ du 
+\]
+
+Then, you will use integration by parts. Let $ u = t \quad du = dt \quad v = \int cos(t)dt$
+
+$ \frac{1}{2} t \sin{ t } - \frac{1}{2} \int^{\pi}_{\frac{\pi}{2}} \sin{ t } \cos{ t } dt = t \sin t - \frac{1}{4} [\sin^2{ t }]^{\pi}_{\frac{\pi}{2}} $
 
 		
 \end{enumerate}
 
+\subsection{Integration by partial fractions}
+
+When you have some rational function as $ \int \frac{1}{(x-3)(x+4)} dx $, you will separate the fraction into two fractions. If the denominator is not factored, factor it first. Let's elaborate.
+
+\[
+	\frac{1}{(x-3)(x+4)} = \frac{A}{x-3} + \frac{B}{x+4} \implies 1=A(x+4)+B(x-3)
+\]
+We will then substitute $ x $ as what will make the other function zero. For instance, in the previous example, if we substituted $ x = 3 $ the part $ B(x-3) $ will equal zero, and we will have the value of A, and the same with the value of B by substituting x with -4. 
+Now the question is a fairly simple one.
+\[
+x=3 \implies A = \frac{1}{7} \qquad x=-4 \implies B =-\frac{1}{7}
+\]
+\[
+	 \int \frac{1}{(x-3)(x+4)} dx = \int \frac{ \frac{1}{7} }{ x-3 } - \frac{ \frac{1}{7} }{ x+4 } dx
+	 =[ \ln{|x-3|} - \ln{|x+4|} ] \frac{1}{7}
+\]
+
+Also, a quicker way is to replace the function, ignoring the "B" part replacing x with the number that will make the ignored fraction zero. Let's explain more.
+In $\int \frac{3x}{(x-4)(x+5)} $
+
+\[
+	A = \left [ \frac{3x}{x+5} \right ]  _{x=4}
+	= \frac{4}{3} \qquad \qquad B = \left [ \frac{3x}{x-4} \right ] _{x=-5} = \frac{5}{3}
+\]
+
+Another example with 3 fractions in the bottom. In $\int \frac{ 2x+5 }{ x(x-1)(x+5) }$, We will do the same. A is left as a 5-second-quick mind exercise.
+
+\[
+	\qquad B = \left [ \frac{ 2x+5 }{ x(x-5) }    \right ]_{x=1} = \frac{7}{6} \qquad \qquad C = \left [ \frac{ 2x+5 }{ x(x-1) }   \right ]_{x=-5} = -\frac{1}{6} 
+\]
+
+In some situations with equal powers and different limits like $ \int \frac{ 2x^2+5 }{ x^2+2x }  $ it won't be equal $ \frac{A}{x} + \frac{B}{x+2} $ as when $ x $ approaches $ \infty $, the main function approach 2 while the new A and B functions approach 0, which is wrong. Now, you will need to perform 'long division' till the power of denominator be more than that of nominator and deal with the remainder. For the mentioned question: 
+\begin{center}
+
+	$ \qquad \qquad \qquad \qquad  \qquad  2 $ \ \ \ \ \ \ \ \ \ \ \ \ \ \it{Quotient} \
+
+	\longdiv{x^2+2x}{2x^2+5}
+
+	$ \qquad  \quad -(2x^2+4x) $
+	
+	---------------------------
+
+	\qquad \qquad \qquad \qquad \qquad 	$ -4x+5  $ \ \ \ \it{Remainder}
+
+	Note that now the power of the nominator is less than that of the denominator.
+
+\[	
+	\therefore \frac{ 2x^2 + 5 }{x^2+2x} =  2 + \frac{ -4x+5 }{ x(x+2) }
+	= 2 + \frac{A}{x} + \frac{ B }{ x+2 } 
+\] 
+
+\end{center}
+
+In other cases where calculating B will yield complex solution, as $ \int \frac{1}{x(x^2+4x+5)}$.
+This one will need solving $ x^2+4x+5 $ which does not have real solutions. Here you will add a new variable to be added in the equation in a way so you can use it to calculate coefficients of $ x, x^2, ... $
+
+	\[	\frac{1}{x(x^2+4x+5)}= \frac{A}{x} + \frac{ Bx+C }{ x^2+4x+5 }  
+	\implies 1 = A(x^2+4x+5) + (Bx+C)x
+	\]
+
+	You will then compare the R.H.S to the L.H.S. To find A easily substitute $ x=0 $ and get $ A = \frac{1}{5} $ 
+
+	\begin{center}
+
+	Coefficient of $ x^2: A+B = 0 \implies B = -\frac{1}{5}   $ 
+
+	Coefficient of $ x^1: 4A+C = 0 \implies C = -\frac{4}{5} $ 
+
+	\end{center}
+
+	
+Now we're done and you can finish the problem smoothly.	
 
 
 
+In another case of some squared part in the denominator of the function, you will split it in this way
+
+\[
+	\frac{1}{(x-1)^2(x+2)}  = \frac{A}{x+2} + \frac{B}{x-1} + \frac{C}{(x-1)^2}
+\]
+Now, solve the normal way for A and C. B is harder to get, but solving for it using A and C values will easily yield its value.
+
+In case of higher power, you can have multiple variables where two of them will be easily got using the normal method. The rest of the variables can be got by equating $x$ to some values and then you can have infinite number of equations with the number of variables desires and you can solve them easily. 
+
+\paragraph{TL;DR}
+Different Limits/ higher power in nominator $ \implies $ Long division \newline
+Unsolvable/ Complex solutions $ \implies $ use $ Bx+C $ and coefficients \newline
+Repeated Power $ \implies $ multiple graduated variables\newline
+Others $ \implies $ normal integration by partial fractions
 
 
 
+\newpage
+
+\subsection{Trigonometric Integrals}
 
 
+In general, we try to write an integrand involving powers of sine and cosine in a form
+where we have only one sine factor (and the remainder of the expression in terms of
+cosine) or only one cosine factor (and the remainder of the expression in terms of sine).
+The iden­tity $sin^2x+ cos^2x = 1$ enables us to convert back and forth between even pow­
+ers of sine and cosine.
+\begin{enumerate}[1.]
+	\item \[ \int \sin^m{ x } \cos^n{ x } \ dx 
+		\]
+		If $ m $ is odd, use $ u= \cos{ x }  $, if $ n $ is odd, use $ u= \sin{ x }  $. If both of them are even, use the identities $ \sin^2{x} = \frac{ 1- \cos{ (2x) }  }{ 2 }  $ and $ \cos^2x = \frac{ 1+ \cos(2x) }{ 2 }  $  i
 
+% Add notes from lecture 10 of wafik HERE.
 
 \end{enumerate}
 
+
+\newpage
+
+\thispagestyle{empty}
+
+\section*{Fundamental Identities}
+The functions $\cos(\theta)$ and $\sin(\theta)$ are defined to be the $x$
+and $y$~coordinates of the point at an angle of $\theta$ on the unit circle.
+Therefore,
+$\sin(-\theta) = -\sin(\theta)$, $\cos(-\theta) = \cos(\theta)$, and
+\[
+\sin^2(\theta) + \cos^2(\theta) = 1
+\] 
+The other trigonometric functions are defined in terms of sine and cosine:
+\[
+\begin{array}{rclrcl}
+\tan(\theta) &=& \sin(\theta)/\cos(\theta)\quad & \quad
+\cot(\theta) &=& \cos(\theta)/\sin(\theta) = 1/\tan(\theta)\\
+\sec(\theta) &=& 1/\cos(\theta)\quad & \quad
+\csc(\theta) &=& 1/\sin(\theta)
+\end{array}
+\]
+Dividing $\sin^2(\theta) + \cos^2(\theta) = 1$ by
+$\cos^2(\theta)$ or $\sin^2(\theta)$ gives
+\begin{eqnarray*}
+\tan^2(\theta) + 1 &=& \sec^2(\theta)\\
+1 + \cot^2(\theta) &=& \csc^2(\theta)
+\end{eqnarray*}
+
+\section*{Addition Formulas}
+The following two formulas are somewhat difficult to derive and should
+be memorized.
+\begin{eqnarray*}
+\sin(\alpha+\beta) &=& \sin(\alpha)\cos(\beta) + \cos(\alpha)\sin(\beta) \\
+\cos(\alpha+\beta) &=& \cos(\alpha)\cos(\beta) - \sin(\alpha)\sin(\beta)
+\end{eqnarray*}
+These formulas can be used to prove simple identities like
+$\sin(\pi/2 - \theta) = \sin(\pi/2)\cos(\theta) + \cos(\pi/2)\sin(\theta) =
+\cos(\theta)$, or $\cos(x-\pi) = \cos(x)\cos(\pi) - \sin(x)\sin(\pi) =
+-\cos(x)$.  If we set $\alpha = \beta$ in the addition formulas we get the 
+double-angle formulas:
+\begin{eqnarray*}
+\sin(2\alpha) &=&  2\sin(\alpha)\cos(\alpha) \\
+\cos(2\alpha) &=& \cos^2(\alpha) - \sin^2(\alpha)
+\end{eqnarray*}
+The formula for $\cos(2\alpha)$ is often rewritten by replacing
+$\cos^2(\alpha)$ with $1-\sin^2(\alpha)$ or replacing $\sin^2(\alpha)$
+with $1-\cos^2(\alpha)$ to get
+\begin{eqnarray*}
+\cos(2\alpha) &=& 1 - 2\sin^2(\alpha) \\
+\cos(2\alpha) &=& 2\cos^2(\alpha) - 1
+\end{eqnarray*}
+Solving for $\sin^2(\alpha)$ and $\cos^2(\alpha)$ yields identities
+important for integration:
+\begin{eqnarray*}
+\sin^2(\alpha) &=& \frac{1}{2}(1 - \cos(2\alpha)) \\
+\cos^2(\alpha) &=& \frac{1}{2}(1 + \cos(2\alpha))
+\end{eqnarray*}
+
+\section*{Derivatives and Integrals}
+\[
+\begin{array}{rclrcl}
+\frac{d}{dx}\sin(x) &=& \cos(x)\quad &\quad
+\frac{d}{dx}\sec(x) &=& \sec(x)\tan(x)\\
+\frac{d}{dx}\cos(x) &=& -\sin(x)\quad &\quad
+\frac{d}{dx}\csc(x) &=& -\csc(x)\cot(x) \\
+\frac{d}{dx}\tan(x) &=& \sec^2(x)\quad &\quad
+\frac{d}{dx}\cot(x) &=& -\csc^2(x) \\
+\\
+\int\sin(x)\,dx &=& -\cos(x)+C\quad &\quad
+\int\sec(x)\,dx &=& \ln|\sec(x)+\tan(x)|+C\\
+\int\cos(x)\,dx &=& \sin(x)+C\quad &\quad
+\int\csc(x)\,dx &=& -\ln|\csc(x)+\cot(x)|+C \\
+\int\tan(x)\,dx &=& \ln|\sec(x)|+C\quad &\quad 
+\int\cot(x)\,dx &=& -\ln|\csc(x)|+C
+\end{array}
+\]
+
+An addition formula for tangent can also be derived from the
+ones for sine and cosine. Dividing the first equation by the second gives
+\[
+\tan(\alpha+\beta) = \frac{\sin(\alpha)\cos(\beta) + \cos(\alpha)\sin(\beta)}
+                 {\cos(\alpha)\cos(\beta) - \sin(\alpha)\sin(\beta)}
+\]
+Now divide the numerator and denominator by $\cos(\alpha)\cos(\beta)$ to get
+\[
+\tan(\alpha+\beta) = \frac{\tan(\alpha) + \tan(\beta)}{1 -
+\tan(\alpha)\tan(\beta)}
+\]
+\[
+\tan(2\alpha) = \frac{2\tan(\alpha)}{1-\tan^2(\alpha)} \\
+\]
+
+
+
+\includepdf[pages=1,fitpaper]{cheatSheet.pdf}
 
 \end{document}
