@@ -1127,10 +1127,40 @@
 
 			Now, it's a normal trig-sub question. Put $ u = 2 \sin{ \theta }  $ and voila.
 
+	\end{enumerate}
+	\newpage
+	\subsection{Improper Integrals}
+	To summarize, if the integral was on an interval $ [0,\pm \infty] $ or $ [\pm \infty,0] $, you can denote the infinity with t and solve normally, then evaluate the limit. If the limit exists, the integral is convergent, if not, the integral diverges.
+
+	Two notes to remember is that L'Hopital rule  will come in handy in multiple situations. Also, not to get in misconception with another types of integral, this is only applied in the definite integrals. 
+
+	I will list the main set of equations you will normally use for reference.
+	
+	\begin{enumerate}[a.]
+		\item $$\int^{\infty}_{a} f(x) dx = \lim_{t \to \infty} \int^{a}_{t} f(x) dx   $$
+		\item $$\int^{b}_{\infty} f(x) dx = \lim_{t \to -\infty} \int^{b}_{t} f(x) dx  $$
+		\item 
+			$$ \int^{\infty}_{-\infty} f(x) dx =
+				\int^{\infty}_{a} f(x) dx + \int^{a}_{\infty} f(x) dx 
+			$$
+		\item $$ \int^{\infty}_{1} \frac{1}{x^p} ,\ p>1 \implies \text{converge, } p 	\leq 1 \implies \text{diverges} $$
+
+	
+	This was the normal, or easy type of questions you will be able to momentarily solve and notice. In the other one, suppose you are getting the integral of a function on $ [a,b] $ that has a vertical asymptote at $ b $ ( $ f $ is on $[a,b)$ ). 
+
+\item $$ \int^{b}_{a} f(x) dx = \lim_{t 	\to b^-	} \int^{a}_{t} f(x) dx \text{,  If the limit exists as a finite number.}  $$
+
+	Also, the same occurs if $ a $ was the one non existent ($f$ is on $ (a,b]$\ ). Besides, if $ f $ has a discontinuity at $ c $ where $ a<c<b $ and both $ \int^{c}_{a} f(x) dx \text{ and } \int^{b}_{c} f(x) dx   $ are convergent, then 
+			\item \[
+				\int^{b}_{a} f(x) dx =
+				\int^{c}_{a} f(x) dx + \int^{b}_{c} f(x) dx 
+			\]
+	
+			
+	
 
 
 	\end{enumerate}
-	\newpage
 
 
 

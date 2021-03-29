@@ -1,0 +1,296 @@
+\documentclass[10pt,a4paper,landscape]{article}
+\usepackage{multicol}
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage[landscape]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb}
+\usepackage{color,graphicx}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arcCot}
+\DeclareMathOperator{\arccsc}{arcCsc}
+\DeclareMathOperator{\arccosh}{arcCosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\arccsch}{arcCsch}
+\DeclareMathOperator{\arccoth}{arcCoth} 
+
+
+\pdfinfo{
+	/Title (Calculus 2 Cheat Sheet.pdf)
+	/Creator (TeX)
+	/Producer (pdfTeX 1.40.0)
+	/Author (Ahmed ELtokhy)
+	/Subject (Cheat Sheet)
+	/Keywords (pdflatex, latex,pdftex,tex)}
+
+\ifthenelse{\lengthtest { \paperwidth = 297mm}}
+{ \geometry{top=.15in,left=.15in,right=.15in,bottom=.15in} }
+{\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
+{\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+{\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+}
+
+% Turn off header and footer
+\pagestyle{empty}
+
+% Redefine section commands to use less space
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0mm}%
+{-1ex plus -.5ex minus -.2ex}%
+{0.5ex plus .2ex}%
+{\normalfont\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0mm}%
+{-1ex plus -.5ex minus -.2ex}%
+{0.5ex plus .2ex}%
+{\normalfont\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0mm}%
+{-1ex plus -.5ex minus -.2ex}%
+{.1ex plus .2ex}%
+{\normalfont\small\bfseries}}
+\makeatother
+
+
+\setcounter{secnumdepth}{0}
+
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt plus 0.5ex}
+
+\newtheorem{example}[section]{Example}
+
+\begin{document}
+\raggedright
+\footnotesize
+\begin{multicols*}{5}
+
+
+	\setlength{\premulticols}{1pt}
+	\setlength{\postmulticols}{1pt}
+	\setlength{\multicolsep}{1pt}
+	\setlength{\columnsep}{2pt}
+
+	\section{Derivatives}
+	\scriptsize
+	$\frac{d}{dx} e^x=e^x$\newline
+	$\frac{d}{dx} \sin(x)=\cos(x)$\newline
+	$\frac{d}{dx} \cos(x)=-\sin(x)$\newline
+	$\frac{d}{dx} \tan(x)=\sec^2(x)$\newline
+	$\frac{d}{dx} \cot(x)=-\csc^2(x)$\newline
+	$\frac{d}{dx} \sec(x)=\sec(x)\tan(x)$\newline
+	$\frac{d}{dx} \csc(x)=-\csc(x)\cot(x)$\newline
+	$\frac{d}{dx} \sin^{-1}=\frac{1}{\sqrt{1-x^2}}, x \in [-1,1]$\newline
+	$\frac{d}{dx} \cos^{-1}=\frac{-1}{\sqrt{1-x^2}}, x \in [-1,1]$\newline
+	$\frac{d}{dx} \tan^{-1}=\frac{1}{1+x^2}, \frac{-\pi}{2}\le x \le \frac{\pi}{2}$\newline
+	$\frac{d}{dx} \sec^{-1}=\frac{1}{\mid x \mid \sqrt{x^2-1}}, |x| > 1$\newline
+	$\frac{d}{dx} \sinh(x)=\cosh(x)$\newline
+	$\frac{d}{dx} \cosh(x)=\sinh(x)$\newline
+	$\frac{d}{dx} \tanh(x)=sech^2(x)$\newline
+	$\frac{d}{dx} \coth(x)=-csch^2(x)$\newline
+	$\frac{d}{dx} sech(x)=-sech(x)\tanh(x)$\newline
+	$\frac{d}{dx} csch(x)=-csch(x)\coth(x)$\newline
+	$\frac{d}{dx} \sinh^{-1}=\frac{1}{\sqrt{x^2+1}}$\newline
+	$\frac{d}{dx} \cosh^{-1}=\frac{-1}{\sqrt{x^2-1}}, x > 1$\newline
+	$\frac{d}{dx} \tanh^{-1}=\frac{1}{1-x^2} -1 < x < 1$\newline
+	$\frac{d}{dx} sech^{-1}=\frac{1}{x \sqrt{1-x^2}}, 0 < x < 1$
+	$\frac{d}{dx} \ln(x) = \frac{1}{x} $\newline
+	$\frac{d}{dx} b^x = b^x \ln{x} $ 
+
+	\section{Integrals}
+	\scriptsize
+	$\int \sin(x) dx = -\cos(x) $\newline
+	$\int \cos(x) dx = \sin(x) $\newline
+	$\int \tan(x) dx = -\ln|\sec(x) | $\newline
+	$\int \sec x \tan x dx = \sec x $\newline
+	$\int \sec x dx = \ln | \sec x + \tan x |$\newline 
+	$\int \sec^2(x) dx = \tan(x) + C $ 
+	$\int \sec^3(x) dx= \frac{1}{2}(\sec x \tan x + \ln| \sec x \tan x |)  $ 
+	$\int \csc^2(x) dx= -\cot(x)$\newline
+	$\int \csc (x) \cot (x) dx = - \csc(x)$\newline
+	$\int \csc (x) dx = \ln | \csc (x) - \cot (x) | $\newline
+	$\int \cot(x) dx = \ln|\sin(x)| $\newline
+	$\int \frac{1}{x}dx = \ln|x|$\newline
+	$\int e^x dx = e^x $\newline
+	$\int a^x dx = \frac{1}{\ln a} a^x $\newline
+	$\int e^{ax} dx = \frac{1}{a} e^{ax} $\newline
+	$\int \frac{1}{\sqrt{a^2-x^2}} dx = \sin^{-1}(\frac{x}{a}) $\newline
+	$\int \frac{1}{a^2+x^2} dx = \frac{1}{a} \tan^{-1}(\frac{x}{a}) $\newline
+	$\int \frac{1}{x^2-a^2} dx = \frac{1}{2a} \ln |\frac{x-a}{x+a}|$\newline 
+	$\int \frac{1}{\sqrt{x^2 \pm a^2}} dx=\ln |x+\sqrt{x^2 \pm a^2}|$\newline
+	$\int \frac{1}{x\sqrt{x^2-1}} dx = \sec^{-1}(x) $\newline
+	$\int \sinh(x) dx = \cosh(x) $\newline
+	$\int \cosh(x) dx = \sinh(x) $\newline
+	$\int \tanh(x) dx = \ln|\cosh(x)| $\newline
+	$\int \tanh(x)sech(x) dx = -sech(x) $\newline
+	$\int \sech^2(x) dx = \tanh(x) $\newline
+	$\int \csch(x)\coth(x) dx = -\csch(x) $\newline
+	$ \int \ln(x) dx = (x \ln(x))-x $\newline
+	$ \int^r_{-r} \sqrt{ r^2 - x^2 }\ dx = \frac{ \pi r^2 }{ 2 }  $\newline
+	$\int \frac{1}{\sqrt{x}} dx = 2\sqrt{x} $\newline
+	Integrals of inverse trig functions are solved using integration by parts.\newline
+
+	\textbf{U-Substitution}\newline
+	Let $ u=f(x) $ (can be more than one variable).\newline
+	Determine: $ du = \frac{f(x)}{dx}dx $ and solve for dx.\newline
+	Then, if a definite integral, substitute the bounds for $ u=f(x) $ at each bounds\newline
+	Solve the integral using u.\newline
+
+	\textbf{Integration by Parts}\newline
+	$ \int u dv = uv-\int v du $
+
+	\section{Functions/ Identities}
+	\textbf{Most of trig identities work with hyperbolic, exceptions below}\newline  
+	$\sin(\cos^{-1}(x)) = \sqrt{1-x^2}$\newline
+	$\cos(\sin^{-1}(x)) = \sqrt{1-x^2} $\newline
+	$\sec(\tan^{-1}(x)) = \sqrt{1+x^2} $\newline
+	$\tan(\sec^{-1}(x)) \newline = (\sqrt{x^2-1} \: $if$ \: x \ge 1)\newline =(-\sqrt{x^2-1} \: if \: x \le -1)$
+	$\sinh^{-1}(x) = \ln{x+\sqrt{x^2+1}} $\newline
+	$\sinh^{-1}(x) = \ln{x+\sqrt{x^2-1}}, \: x \ge -1 $\newline
+	$\tanh^{-1}(x) = \frac{1}{2}\ln{x+\frac{1+x}{1-x}}, \: 1 < x < -1 $\newline
+	$\sech^{-1}(x) = \ln[{\frac{1+\sqrt{1-x^2}}{x}}], \: 0 < x \le -1 $\newline
+	$\sinh(x) = \frac{e^{x}-e^{-x}}{2} $\newline
+	$\cosh(x) = \frac{e^{x}+e^{-x}}{2} $\newline
+	$ \sin^2(x)+\cos^2(x) = 1 $\newline
+	$ 1+\tan^2(x) = \sec^2(x) $\newline
+	$ 1+\cot^2(x) = \csc^2(x) $\newline
+	$ \sin(x\pm y) = \sin(x)\cos(y)\pm\cos(x)\sin(y) $\newline
+	$ \cos(x\pm y) = \cos(x)\cos(y)\pm\sin(x)\sin(y) $\newline
+	$ \tan(x\pm y) = \frac{\tan(x)\pm\tan(y)}{1 \mp \tan(x)\tan(y)} $\newline
+	$ \sin(2x) = 2\sin(x)\cos(x) $\newline
+	$ \cos(2x) = \cos^{2}(x) - \sin^{2}(x) $\newline
+	$ \cosh(n^{2}x)-\sinh^{2}x = 1 $\newline
+	$ 1+\tan^2(x) = \sec^2(x) $\newline
+	$ 1+\cot^2(x) = \csc^2(x) $\newline
+	$ \sin^2(x) = \frac{1-\cos(2x)}{2} $\newline
+	$ \cos^2(x) = \frac{1+\cos(2x)}{2} $\newline
+	$ \tan^2(x) = \frac{1-\cos(2x)}{1+\cos(2x)} $\newline
+	$ \sin(-x) = -\sin(x) $\newline
+	$ \cos(-x) = \cos(x) $\newline
+	$ \tan(-x) = -\tan(x) $\newline
+	$ \cosh^2(x) - \sinh^2(x) = 1 $\newline
+	$ 1-\tanh^2(x) = \sech^2(x) $
+
+	\subsection{3D}
+	given two points:\newline
+	$ (x_1, y_1, z_1) $ and $ (x_2, y_2, z_2)$,\newline
+	Distance between them:\newline
+	$ \sqrt{(x_1-x_2)^2+(y_1-y_2)^2+(z_1-z_2)^2} $\newline
+	Midpoint:\newline
+	$ (\frac{x_1+x_2}{2},\frac{y_1+y_2}{2},\frac{z_1+z_2}{2}) $\newline
+	Sphere with center (h,k,l) and radius r:\newline
+	$ (x-h)^2 + (y-k)^2 + (z-l)^2 = r^2 $
+
+	\subsection{Vectors}
+	Vector: $ \vec{u} $\newline
+	Unit Vector: $ \hat{u} $\newline
+	Magnitude: $ ||\vec{u}|| = \sqrt{u_1^2+u_2^2+u_3^2}$\newline
+	Unit Vector: $ \hat{u} = \frac{\vec{u}}{||\vec{u}||} $\newline
+
+	\textbf{Dot Product}\newline
+	$ \vec{u} \cdot \vec{v} $\newline
+	Produces a Scalar \newline
+	(Geometrically, the dot product is a vector projection)\newline
+	$\vec{u} = < u_1, u_2, u_3 >$\newline
+	$\vec{v} = < v_1, v_2, v_3 >$\newline
+	$ \vec{u} \cdot \vec{v} = \vec{0} $ means the two vectors are Perpendicular
+	$ \theta $ is the angle between them.\newline
+	$\vec{u} \cdot \vec{v} = ||\vec{u}||\:||\vec{v}||\cos(\theta) $\newline
+	$\vec{u} \cdot \vec{v} = u_1v_1 + u_2v_2 + u_3v_3 $\newline
+	NOTE:\newline
+	$ \hat{u} \cdot \hat{v} = \cos(\theta) $\newline
+	$ ||\vec{u}||^2 = \vec{u} \cdot \vec{u} $\newline
+	$ \vec{u} \cdot \vec{v} = 0 $ when $ \bot $\newline
+	Angle Between $ \vec{u} $ and $ \vec{v} $:\newline
+	$ \theta = \cos^{-1}(\frac{\vec{u} \cdot \vec{v}}{||\vec{u}||\:||\vec{v}||}) $\newline
+	Projection of $ \vec{u} $ onto $ \vec{v} $:\newline
+	$ pr_{\vec{v}}\vec{u} = (\frac{\vec{u} \cdot \vec{v}}{||\vec{v}||^2})\vec{v} $\newline
+
+	\textbf{Cross Product}\newline
+	$\vec{u} \times \vec{v}$\newline
+	Produces a Vector\newline
+	(Geometrically, the cross product is the area of a paralellogram with sides $ ||\vec{u}|| $ and $ ||\vec{v}|| $)\newline
+	$\vec{u} = < u_1, u_2, u_3 >$\newline
+	$\vec{v} = < v_1, v_2, v_3 >$\newline
+	\[
+		\vec{u} \times \vec{v} = 
+		\begin{vmatrix}
+			\hat{i} & \hat{j} & \hat{k} \\
+			u_1 & u_2 & u_3 \\
+			v_1 & v_2 & v_3
+		\end{vmatrix}
+	\]\newline 
+	$ \vec{u} \times \vec{v} = \vec{0} $ means the vectors are parallel \newline
+	$ \vec{ a } \times ( \vec{ b } \times \vec{ c } )= ( \vec{ a } . \vec{ c } ) \vec{ b } - ( \vec{ a } . \vec{ b } ) \vec{ c }$ \newline
+
+	\textbf{Volume of Parallelpiped} \newline 
+	\begin{equation*}
+		( \vec{ v } \times \vec{ u } ) . \vec{ w }
+	\end{equation*}
+
+	However, in the case the question gave you three vectors directly
+	\begin{equation*}
+		Volume = det \left( \left [
+			\begin{matrix}
+				v_1&v_2&v_3\\u_1&u_2&u_3\\w_1&w_2&w_3
+			\end{matrix}
+			\right]
+		\right)
+	\end{equation*}
+
+
+	\subsection {Lines and Planes}
+	\textbf{Equation of a Plane}\newline
+	$ (x_0, y_0, z_0) $ is a point on the plane and $ <A,B,C> $ is a normal vector
+
+	$A(x-x_0)+B(y-y_0)+C(z-z_0) = 0$\newline
+	$ <A,B,C> \cdot <x-x_0, y-y_0, z-z_0> = 0 $\newline
+	$ Ax+By+Cz = D $ where $ D=Ax_0+By_0+Cz_0 $\newline
+
+	\textbf{Equation of a line}\newline
+	A line requires a Direction Vector $ \vec{u}=<u_1,u_2,u_3> $ and a point $(x_1,y_1,z_1)$\newline
+
+	Parametric equation: 
+	$ x=u_1t+x_1 \quad y=u_2t+y_1 \quad z=u_3t+z_1 $
+
+	Symmetric equations:
+	$	t= \frac{ x-x_1 }{u_1} = \frac{ y-y_1 }{u_2} = \frac{ z-z_1 }{u_3}) $
+
+
+
+	\textbf{Distance from a Point to a Plane}\newline
+	The distance from a point $(x_0,y_0,z_0)$ to a plane Ax+By+Cz=D can be expressed by the formula:\newline
+	$ d=\frac{|Ax_0+By_0+Cz_0-D|}{\sqrt{A^2+B^2+C^2}} $\newline
+
+	\textbf{A line intersects a plane} Just put the equations of $x,y,z$ in the equation of the plane given, and solve for $t$. Then you'll have the points. 
+	\newline 
+
+	\textbf{Distance between two skew lines through $ P_1P_2,\ P_3P_4 $ } \newline
+	\[
+		D = \frac{ Vol_{parallelepiped} }{ Area_{base} } = \frac{ | ( \vec{ P_1P_2 } \times \vec{ P_3P_4 } ) . \vec{ P_1P_3 } |}{ | \vec{ P_1P_2 } \times  \vec{ P_3P_4 } | } 
+	\]
+
+	Or go for the intuitive approach of forcing perpendicularity.\newline
+
+	\textbf{If two vectors are parallel} $| \vec{ v_1 } \times  \vec{ v_2 } |=0 $\newline 
+
+	\textbf{Distance between a point and a line} $ \vec{ v } $  \newline
+	$ D = \frac{| \vec{ Pv_0 } \times \ \vec{ v } | }{ | \vec{ v } |  }$ \newline
+
+	\subsection {Other Information}
+	$ \frac{\sqrt{a}}{\sqrt{b}} = \sqrt{\frac{a}{b}} $\newline
+	Law of Cosines:\newline
+	$ a^2 = b^2 + c^2 - 2bc(\cos(\theta)) $\newline
+	Quadratic Formula:\newline
+	$ \frac{ -b \pm \sqrt{ b^2-4ac } }{ 2a } $, when $ ax^2+bx+c=0 $ 
+	\newpage
+
+\end{multicols*}
+\end{document}
