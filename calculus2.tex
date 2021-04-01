@@ -93,7 +93,7 @@
 	Find the unit vectors that are parallel to the tangent line to the parabola $y=x^2$ at the point $(2,4)$
 
 	\subparagraph{Solution}
-	The tangent line will be $ \frac{dy}{dx}(x^2) = 2x = 2(2) = 4$ then the parallel lines to that vector will be the vectors $<1,4>,<-1,-4>$. To get the unit vectors, equalize the magnitude to 1. 
+	The tangent line will be $ \frac{d}{dx}(x^2) = 2x = 2(2) = 4$ then the parallel lines to that vector will be the vectors $<1,4>,<-1,-4>$. To get the unit vectors, equalize the magnitude to 1. 
 
 	$|<1,4>| = \sqrt{1^2 + 4^2} = \sqrt{17}$. Thus the unit vectors will be $\pm\frac{1}{17}<1,4>$
 
@@ -880,7 +880,7 @@
 		\qquad B = \left [ \frac{ 2x+5 }{ x(x-5) }    \right ]_{x=1} = \frac{7}{6} \qquad \qquad C = \left [ \frac{ 2x+5 }{ x(x-1) }   \right ]_{x=-5} = -\frac{1}{6} 
 	\]
 
-	In some situations with equal powers and different limits like $ \int \frac{ 2x^2+5 }{ x^2+2x }  $ it won't be equal $ \frac{A}{x} + \frac{B}{x+2} $ as when $ x $ approaches $ \infty $, the main function approach 2 while the new A and B functions approach 0, which is wrong. Now, you will need to perform 'long division' till the power of denominator be more than that of nominator and deal with the remainder. For the mentioned question: 
+	In some situations with equal powers and different limits like $ \int \frac{ 2x^2+5 }{ x^2+2x }  $ it won't be equal $ \frac{A}{x} + \frac{B}{x+2} $ as when $ x $ approaches $ \infty $, the main function approach 2 while the new A and B functions approach 0, which is wrong. Now, you will need to perform 'long division' till the power of denominator be more than that of numerator and deal with the remainder. For the mentioned question: 
 	\begin{center}
 
 		$ \qquad \qquad \qquad \qquad  \qquad  2 $ \ \ \ \ \ \ \ \ \ \ \ \ \ \it{Quotient} \
@@ -893,7 +893,7 @@
 
 		\qquad \qquad \qquad \qquad \qquad 	$ -4x+5  $ \ \ \ \it{Remainder}
 
-		Note that now the power of the nominator is less than that of the denominator.
+		Note that now the power of the numerator is less than that of the denominator.
 
 		\[	
 		\therefore \frac{ 2x^2 + 5 }{x^2+2x} =  2 + \frac{ -4x+5 }{ x(x+2) }
@@ -941,11 +941,11 @@
 
 	\paragraph{TL;DR}
 
-	Different Limits/ higher power in nominator $ \implies $ Long division \newline 
+	Different Limits/ higher power in numerator $ \implies $ Long division \newline 
 	Repeated Power $ \implies $ multiple graduated variables\newline
 	Unsolvable/ Complex solutions (where $ b^2 -4ac < 0 $ ) $ \implies $ use $ Bx+C $ and coefficients, and for the unsolvable part use the identity $ \int^{}_{} \frac{1}{x^2+a^2} dx = \frac{1}{a} \tan^{-1}(\frac{x}{a})+C  $ after completing the square if necessary (and then using u-substitution)\newline
 
-	\textbf{Note} Always check whether the nominator is the derivative of the denominator. If so, it will be an easy u-substitution problem. 
+	\textbf{Note} Always check whether the numerator is the derivative of the denominator. If so, it will be an easy u-substitution problem. 
 
 	\newpage
 	\subsubsection{Questions}
@@ -1132,127 +1132,236 @@
 	\subsection{Improper Integrals}
 	To summarize, if the integral was on an interval $ [0,\pm \infty] $ or $ [\pm \infty,0] $, you can denote the infinity with t and solve normally, then evaluate the limit. If the limit exists, the integral is convergent, if not, the integral diverges.
 
-	Two notes to remember is that L'Hopital rule  will come in handy in multiple situations. Also, not to get in misconception with another types of integral, this is only applied in the definite integrals. 
+	Remember is that L'Hopital rule  will come in handy in multiple situations. For instance, in calculating $ \lim_{t \to 0^+} t \ln t $ It will be easier to think of it as $ \frac{\ln t}{\frac{1}{t}} $ so we can use l'hopital to calculate the limit. 
 
 	I will list the main set of equations you will normally use for reference.
-	
+
 	\begin{enumerate}[a.]
 		\item $$\int^{\infty}_{a} f(x) dx = \lim_{t \to \infty} \int^{a}_{t} f(x) dx   $$
 		\item $$\int^{b}_{\infty} f(x) dx = \lim_{t \to -\infty} \int^{b}_{t} f(x) dx  $$
 		\item 
 			$$ \int^{\infty}_{-\infty} f(x) dx =
-				\int^{\infty}_{a} f(x) dx + \int^{a}_{\infty} f(x) dx 
+			\int^{\infty}_{a} f(x) dx + \int^{a}_{\infty} f(x) dx 
 			$$
 		\item $$ \int^{\infty}_{1} \frac{1}{x^p} ,\ p>1 \implies \text{converge, } p 	\leq 1 \implies \text{diverges} $$
 
-	
-	This was the normal, or easy type of questions you will be able to momentarily solve and notice. In the other one, suppose you are getting the integral of a function on $ [a,b] $ that has a vertical asymptote at $ b $ ( $ f $ is on $[a,b)$ ). 
 
-\item $$ \int^{b}_{a} f(x) dx = \lim_{t 	\to b^-	} \int^{a}_{t} f(x) dx \text{,  If the limit exists as a finite number.}  $$
+			This was the normal, or easy type of questions you will be able to momentarily solve and notice. In the other one, suppose you are getting the integral of a function on $ [a,b] $ that has a vertical asymptotic at $ b $ ( $ f $ is on $[a,b)$ ). 
 
-	Also, the same occurs if $ a $ was the one non existent ($f$ is on $ (a,b]$\ ). Besides, if $ f $ has a discontinuity at $ c $ where $ a<c<b $ and both $ \int^{c}_{a} f(x) dx \text{ and } \int^{b}_{c} f(x) dx   $ are convergent, then 
-			\item \[
+		\item $$ \int^{b}_{a} f(x) dx = \lim_{t 	\to b^-	} \int^{a}_{t} f(x) dx \text{,  If the limit exists as a finite number.}  $$
+
+			Also, the same occurs if $ a $ was the one non existent ($f$ is on $ (a,b]$\ ). Besides, if $ f $ has a discontinuity at $ c $ where $ a<c<b $ and both $ \int^{c}_{a} f(x) dx \text{ and } \int^{b}_{c} f(x) dx   $ are convergent, then 
+		\item \[
 				\int^{b}_{a} f(x) dx =
 				\int^{c}_{a} f(x) dx + \int^{b}_{c} f(x) dx 
 			\]
-	
-			
-	
 
+			In any situation of definite integral, make sure that the whole interval is continuous. Other than that, you may solve wrong if you did not consider the case of improper integral as \textbf{(f)}.
 
+		\item \textbf{Comparison Theorem}  
+			Suppose that $f$ and $t$ are continuous functions with $f(x) 	\geq g(x) 	\geq  0$ for $x \geq  a$.
+			\begin{enumerate}[1.]
+				\item If $\int^{\infty}_{a} f(x) dx$  is convergent, then $ \int^{\infty}_{a} g(x) dx   $  is convergent.
+				\item
+					If $\int^{\infty}_{a} g(x) dx$  is divergent, then $ \int^{\infty}_{a} f(x) dx   $  is divergent.
+			\end{enumerate}
 	\end{enumerate}
 
+\subsubsection{Questions}
 
+\textbf{ Show whether it is convergent or not}
+	\begin{enumerate}[1.]
 
-	\thispagestyle{empty}
+		\item \[\int^{\infty}_{0} e^{-x^2} dx\]
+		
+			\subparagraph{Solution}
+			This one is a direct example for the comparison theorem. Since we can not evaluate the integral, we will start by simplifying the question by separating it.
 
-	\section*{Fundamental Identities}
-	The functions $\cos(\theta)$ and $\sin(\theta)$ are defined to be the $x$
-	and $y$~coordinates of the point at an angle of $\theta$ on the unit circle.
-	Therefore,
-	$\sin(-\theta) = -\sin(\theta)$, $\cos(-\theta) = \cos(\theta)$, and
+			\[
+				\int^{\infty}_{0} e^{-x^2} dx = \int^{1}_{0}   e^{-x^2} dx +
+				\int^{\infty}_{1}  e^{-x^2}  dx  
+			\]
+
+			The first part of the R.H.S is a normal definite integral. While the second we can use the fact that $ x^2 	\geq x \implies -x^2 	\leq -x  \implies e^{-x^2} 	\leq e^{-x}$. This fact reminds us of the comparison theorem where we will check whether $ \int^{\infty}_{1} e^{-x} dx   $  is convergent or not, yielding the solution.
+
+			\[
+				\int^{\infty}_{1} e^{-x} = \lim_{t 	\to \infty} [-e^{-x}]^t_1 =
+				\lim_{t \to \infty} -e^{-t}+e^{-1} = e^{-1}
+			\]
+			
+	\end{enumerate}
+	\newpage
+	\section{Area and Volume}
+	\subsection{Area between curves }
+	The area bounded by $ f(x) \text{ and } g(x) $ where both are continuous and $ f(x)	\geq g(x) 
+	\text{ for  } [a,b]$ is
 	\[
-		\sin^2(\theta) + \cos^2(\theta) = 1
-	\] 
-	The other trigonometric functions are defined in terms of sine and cosine:
-	\[
-		\begin{array}{rclrcl}
-			\tan(\theta) &=& \sin(\theta)/\cos(\theta)\quad & \quad
-			\cot(\theta) &=& \cos(\theta)/\sin(\theta) = 1/\tan(\theta)\\
-			\sec(\theta) &=& 1/\cos(\theta)\quad & \quad
-			\csc(\theta) &=& 1/\sin(\theta)
-		\end{array}
+		A = \int^{b}_{a} [f(x)-g(x)] dx  
 	\]
-	Dividing $\sin^2(\theta) + \cos^2(\theta) = 1$ by
-	$\cos^2(\theta)$ or $\sin^2(\theta)$ gives
-	\begin{eqnarray*}
-		\tan^2(\theta) + 1 &=& \sec^2(\theta)\\
-		1 + \cot^2(\theta) &=& \csc^2(\theta)
-	\end{eqnarray*}
+	
+	Some questions require finding the area enclosed by two graphs, here the points $ a, b $ are the points of intersection.
+	You can get them by solving the two equations simultaneously, either using calculator or by your working brain cells.
+	
+	In case you have two curves that $ f(x) 	\geq g(x)  $ only in some values, use the absolute in the formula as shown below.
 
-	\section*{Addition Formulas}
-	The following two formulas are somewhat difficult to derive and should
-	be memorized.
-	\begin{eqnarray*}
-		\sin(\alpha+\beta) &=& \sin(\alpha)\cos(\beta) + \cos(\alpha)\sin(\beta) \\
-		\cos(\alpha+\beta) &=& \cos(\alpha)\cos(\beta) - \sin(\alpha)\sin(\beta)
-	\end{eqnarray*}
-	These formulas can be used to prove simple identities like
-	$\sin(\pi/2 - \theta) = \sin(\pi/2)\cos(\theta) + \cos(\pi/2)\sin(\theta) =
-	\cos(\theta)$, or $\cos(x-\pi) = \cos(x)\cos(\pi) - \sin(x)\sin(\pi) =
-	-\cos(x)$.  If we set $\alpha = \beta$ in the addition formulas we get the 
-	double-angle formulas:
-	\begin{eqnarray*}
-		\sin(2\alpha) &=&  2\sin(\alpha)\cos(\alpha) \\
-		\cos(2\alpha) &=& \cos^2(\alpha) - \sin^2(\alpha)
-	\end{eqnarray*}
-	The formula for $\cos(2\alpha)$ is often rewritten by replacing
-	$\cos^2(\alpha)$ with $1-\sin^2(\alpha)$ or replacing $\sin^2(\alpha)$
-	with $1-\cos^2(\alpha)$ to get
-	\begin{eqnarray*}
-		\cos(2\alpha) &=& 1 - 2\sin^2(\alpha) \\
-		\cos(2\alpha) &=& 2\cos^2(\alpha) - 1
-	\end{eqnarray*}
-	Solving for $\sin^2(\alpha)$ and $\cos^2(\alpha)$ yields identities
-	important for integration:
-	\begin{eqnarray*}
-		\sin^2(\alpha) &=& \frac{1}{2}(1 - \cos(2\alpha)) \\
-		\cos^2(\alpha) &=& \frac{1}{2}(1 + \cos(2\alpha))
-	\end{eqnarray*}
-
-	\section*{Derivatives and Integrals}
 	\[
-		\begin{array}{rclrcl}
-			\frac{d}{dx}\sin(x) &=& \cos(x)\quad &\quad
-			\frac{d}{dx}\sec(x) &=& \sec(x)\tan(x)\\
-			\frac{d}{dx}\cos(x) &=& -\sin(x)\quad &\quad
-			\frac{d}{dx}\csc(x) &=& -\csc(x)\cot(x) \\
-			\frac{d}{dx}\tan(x) &=& \sec^2(x)\quad &\quad
-			\frac{d}{dx}\cot(x) &=& -\csc^2(x) \\
-			\\
-			\int\sin(x)\,dx &=& -\cos(x)+C\quad &\quad
-			\int\sec(x)\,dx &=& \ln|\sec(x)+\tan(x)|+C\\
-			\int\cos(x)\,dx &=& \sin(x)+C\quad &\quad
-			\int\csc(x)\,dx &=& -\ln|\csc(x)+\cot(x)|+C \\
-			\int\tan(x)\,dx &=& \ln|\sec(x)|+C\quad &\quad 
-			\int\cot(x)\,dx &=& -\ln|\csc(x)|+C
-		\end{array}
+		A = \int^{b}_{a} |f(x)-g(x)| dx  
 	\]
 
-	An addition formula for tangent can also be derived from the
-	ones for sine and cosine. Dividing the first equation by the second gives
+	However, in some curves it will make sense to treat it as a function of y $ x = f(y) $. With f(y) as the right boundary, and g(y) the left one
+
 	\[
-		\tan(\alpha+\beta) = \frac{\sin(\alpha)\cos(\beta) + \cos(\alpha)\sin(\beta)}
-		{\cos(\alpha)\cos(\beta) - \sin(\alpha)\sin(\beta)}
+		A = \int^{b}_{a} [f(y)-g(y)] dy  
 	\]
-	Now divide the numerator and denominator by $\cos(\alpha)\cos(\beta)$ to get
-	\[
-		\tan(\alpha+\beta) = \frac{\tan(\alpha) + \tan(\beta)}{1 -
-		\tan(\alpha)\tan(\beta)}
+	
+
+	\subsection{Volumes}
+
+Volume of a solid that lies between $ x=a \text{ and } x=b $ with cross sectional area A(x) and A is a continuous function is
+\[
+	V = \int^{b}_{a} A(x) dx  
+\]
+
+The main example I will include is deriving the volume of a sphere of radius r. Let's start looking at a graph. 
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.3\textwidth]{./sphereexamplesolid.png}
+\caption{Sphere graph}
+\label{fig:-sphereexamplesolid-png}
+\end{figure}
+
+Here, using Pythagoras we will find that $ y = \sqrt{r^2-x^2} $, and so, the cross sectional area will be $ A(x) = \pi (r^2-x^2) $, and using our main formula, the volume will be
+
+\[
+	V = \int^{r}_{-r} \pi(r^2-x^2) dx  = 2\pi \int^{r}_{0} r^2-x^2 dx = \frac{4}{3} \pi r^3 
+\]
+
+This method of obtaining volume using disks is knows as the disk method. Usually, try to find what will be the radius of each disk using variables of x ($R(x)$) then use this formula where the bounding is normally given or intuitively got
+\[
+	V = \pi \int^{b}_{a} R(x)^2 dx  
+\]
+	Graphing and visualizing the given in the question prompt will make everything easier. Also, you can do the same with vertical disks instead of horizontal ones, and it will make sense to do so if you are revolving around the y axis. 
+
+
+	Another case that includes the area bounded by two graphs, here the area we want will be the subtraction of the area of the circle formed by the smaller graph from the area of the circle formed by the bigger one as viewed in the graph below. 	$V = \pi \int^{b}_{a} R(x)^2 - r(x)^2 dx, \text{ where R is the bigger radius ($x$) and r is the smaller one.}$
+
+
+	\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{./Example of the washer technique in calculating volume bounded by curves x and x^2 around x-axis .png}
+	\caption{Example of the washer volume bounded by curves $x$ and $x^2$ around x-axis}
+	\label{fig:-Example-of-the-washer-technique-in-calculating-volume-bounded-by-curves-x-and-x-2-around-x-axis-png}
+	\end{figure}
+
+\textbf{TL;DR of solids of revolution}
+\[
+	V = \pi \int^{b}_{a} R(x)^2 dx  \qquad \text{or} \qquad V = \pi \int^{d}_{c} R(y)^2 dy \qquad \text{(Disk)}
+\]
+\[
+	V = \pi \int^{b}_{a} R(x)^2 - r(x)^2 dx \qquad \text{or} \qquad V = \pi \int^{d}_{c} R(y)^2 - r(y)^2 dy
+	\qquad \text{(washer)}
+\]
+
+\textbf{Note,} when you are rotating around a line parallel to the x-axis, you will get R(y) and use vertical slices, while if the line is parallel to the y-axis, you will get R(x) and use horizontal slices. 
+
+
+\newpage
+
+\subsection{Volumes by shells}
+
+% add intuition here
+
+Rotating around \textbf{y-axis}
+\[
+	V = \int^{b}_{a} (\text{circumference}) (\text{height}) (\text{thickness})  
+\]
+
+\[
+\implies	V = 2\pi \int^{b}_{a} x f(x) dx \qquad \qquad \text{where $ 0 \leq a < b $ } 
+\]
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{./shellvolumes.png}
+\caption{Volume using shells visualization}
+\label{fig:-shellvolumes-png}
+\end{figure}	
+
+\newpage
+
+\section{Sequences}
+
+Here, questions are really very straightforward. You will denote the sequence $ a_n $	as a function of $ n, f(n) $, then calculate the limit as n approaches $\infty$.
+
+\paragraph{Some Limit Reminders}
+\begin{enumerate}[1.]
+\item $$\lim_{n \to \infty} \frac{1}{n^r}=0, \text{if $ r>0 $	}$$ 
+\item $$ \lim_{n \to \infty} (a_nb_n) = \lim_{n \to \infty} a_n . \lim_{n \to \infty} b_n$$
+\item $$ \lim_{n \to \infty} a_n^p = \left[ \lim_{n \to \infty} a_n	 \right]^p \qquad \text{as $p, a_n>0$} $$
+\item \textbf{SQUEEZE} If you have a function that came from an oscillating function as sine and cosine, manipulate the original function's boundaries to be the same as $ a_n $. You will more probably get an evaluation for the limit.
+
+	"The squeeze theorem states that if $f(x) \leq g(x) \leq h(x)$ for all numbers, and at some point $x=k$ we have $f(k)=h(k)$, then $g(k)$ must also be equal to them. We can use the theorem to find tricky limits like $sin(x)/x$ at $x=0$, by "squeezing" $sin(x)/x$ between two nicer functions and using them to find the limit at $x=0$."
+
+
+\item $$ \text{If } \lim_{n \to \infty} |a_n| = 0 \implies \lim_{n \to \infty} a_n=0 $$
+
+
+\item $$ \text{If the limit of $a_n$ L exists, and $ f $ is continuous at L, then }
+	\lim_{n \to \infty} f(a_n) = L $$
+
+
+\item \[
+		\lim_{n \to \infty} r^n = 0 \text{ for $ -1<r<1 $  } \qquad \qquad 
+		\lim_{n \to \infty} r^n	= 1 \text{ for $ r = 1 $  }
 	\]
-	\[
-		\tan(2\alpha) = \frac{2\tan(\alpha)}{1-\tan^2(\alpha)} \\
-	\]
+
+\end{enumerate}
+
+\paragraph{Monotonic Sequences}
+They are the sequences that are either increasing $ (a_n<a_{n+1}) $ or decreasing $ (a_n>a_{n+1}) $ for all $ n \geq 1 $ 
+
+\paragraph{Bounded Sequences}
+They are sequences which are bounded from above and below. Note that if the function is positive it is bounded below from zero. Besides, if the function is convergent, it is bounded from above. 
+
+\paragraph{Monotonic Sequence Theorem}
+Every bounded, monotonic sequence is convergent.
+
+\subsection{Questions}
+
+\begin{enumerate}[1.]
+\item
+\[
+	a_n = \frac{ (8n-1)! }{ (8n+1)! } 
+\]
+
+\subparagraph{Solution}
+Here, the trick is to notice that by the definition of the factorial, and since the numerator is less than the denominator by two, we can rewrite the above equation as below to cancel the two terms and simplify the question
+\[
+	a_n= \frac{ (8n-1)! }{ ((8n+1)(8n))(8n-1)!  } 
+\]
+
+Now, we can simply evaluate the limit
+
+\[
+	\lim_{n \to \infty} \frac{1}{(8n+1)(8n)} = 0 \qquad \text{(Answer)}
+\]
+\item \[
+		a_n= \frac{ (-1)^n }{ n } 
+\]
+Here, we can use the fifth limit reminder and get the limit of the absolute value. 
+\[
+	\lim_{n \to \infty} \left|  \frac{ (-1)^n }{ n }   \right| = 
+		\lim_{n \to \infty} \frac{1}{n} = 0
+\]
+
+\item $$\lim_{n \to \infty} \sin{ \frac{\pi}{n} } $$
+	According the sixth limit reminder, we can rewrite the question and simplify it since sine function is continuous at 0 
+		\[\lim_{n \to \infty} \sin{ \frac{\pi}{n} } = 
+			\sin{ \left( \lim_{n \to \infty} (\frac{\pi}{n}) \right) } = \sin{ 0 } = 0
+		\]
+		
+\end{enumerate}
+
 
 
 
