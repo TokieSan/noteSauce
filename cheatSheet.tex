@@ -108,7 +108,7 @@
 	\scriptsize
 	$\int \sin(x) dx = -\cos(x) $\newline
 	$\int \cos(x) dx = \sin(x) $\newline
-	$\int \tan(x) dx = -\ln|\sec(x) | $\newline
+	$\int \tan(x) dx = -\ln|\cos(x)| $\newline
 	$\int \sec x \tan x dx = \sec x $\newline
 	$\int \sec x dx = \ln | \sec x + \tan x |$\newline 
 	$\int \sec^2(x) dx = \tan(x) + C $ 
@@ -137,11 +137,28 @@
 	$\int \frac{1}{\sqrt{x}} dx = 2\sqrt{x} $\newline
 	Integrals of inverse trig functions are solved using integration by parts.\newline
 
-	\textbf{U-Substitution}\newline
-	Let $ u=f(x) $ (can be more than one variable).\newline
-	Determine: $ du = \frac{f(x)}{dx}dx $ and solve for dx.\newline
-	Then, if a definite integral, substitute the bounds for $ u=f(x) $ at each bounds\newline
-	Solve the integral using u.\newline
+	\textbf{Weierstrass} \newline
+	$ t = \tan{ \frac{x}{2} } \quad \cos{ x } = \frac{ 1-t^2 }{ 1+t^2 }\newline \sin{ x } = \frac{2t}{1+t^2} \quad dx = \frac{2}{1+t^2}dt  $\newline
+
+$\int \sin^m{ x } \cos^n{ x } $\newline
+ $ m $ is odd factor sines, then sub $ u= \cos{ x }  $
+If $ n $ is odd factor cosines, then sub $ u= \sin{ x }  $. 
+
+If both even, use $ \frac{ 1- \cos{ (2x) }  }{ 2 }, \frac{ 1+ \cos(2x) }{ 2 }  $.
+If both odd, factor one with less power.\newline
+
+$\int \tan^mx \sec^nx$
+
+$n$ even save one $ \sec^2x $ and sub $ u = \tan{ x }  $. 
+
+$m$ odd save one $ \sec x \tan{ x } $ and sub $ u = \sec x $ \newline
+
+$\int \sqrt{ a^2-x^2 } dx \implies x = a \sin{ \theta }$
+$\int \sqrt{ a^2+x^2 } dx \implies x = a \tan{ \theta }$
+$\int \sqrt{ x^2-a^2 } dx \implies x = a \sec{\theta}$ 
+
+$ \int^{\infty}_{1} \frac{1}{x^p} ,\ p>1 : \text{converge, } p 	\leq 1 : \text{diverges} $
+
 
 	\textbf{Integration by Parts}\newline
 	$ \int u dv = uv-\int v du $
@@ -177,7 +194,9 @@
 	$ \tan(-x) = -\tan(x) $\newline
 	$ \cosh^2(x) - \sinh^2(x) = 1 $\newline
 	$ 1-\tanh^2(x) = \sech^2(x) $
-
+	$ \sin{ A } \cos{ B } = \frac{1}{2} ( \sin{( A-B )} + \sin{( A+B )}   ) $
+	$ \sin{ A } \sin{ B } = \frac{1}{2} ( \cos{( A-B )} - \cos{( A+B }   )) $
+	$ \cos{ A } \cos{ B } = \frac{1}{2} ( \cos{ (A-B) } + \cos{ (A+B) }   ) $
 	\subsection{3D}
 	given two points:\newline
 	$ (x_1, y_1, z_1) $ and $ (x_2, y_2, z_2)$,\newline

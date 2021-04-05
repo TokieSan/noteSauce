@@ -789,7 +789,7 @@
 				\implies \int \frac{ 1 }{ 5(1+u^2) } du = \frac{1}{5} \int \frac{ 1 }{ 1 + u^2 }\ du
 			\]
 
-			And as you don't remember, $ \tan^{-1}x= \frac{ 1 }{ 1 + x^2 }  $. So, now you can solve it. 
+			And as you don't remember, $\frac{d}{dx} \tan^{-1}x= \frac{ 1 }{ 1 + x^2 }  $. So, now you can solve it. 
 
 		\item \[
 				\int_0^15 \cos{ (\frac{ \pi x }{ 2 } ) } dx
@@ -811,7 +811,7 @@
 			= \int^4_{-4} x  \sqrt{ 16-x^2 } + \int^4_{-4} 4  \sqrt{ 16-x^2 } = 0 + \int^4_{-4} 4  \sqrt{ 16-x^2 }
 			\]
 			Now, solution will be intuitive a bit since we know that this is the equation of a semicircle with radius $ \sqrt{16} $ multiplies by 4 $ \implies \int = 4 \frac{ (\pi 4^2) } {2} = 32\pi  $.
-			\subsection{Integration by substitution}
+			\subsection{Integration by parts}
 
 			It is derived from the product rule by integrating its normal formula. Proof is left as exercise.
 
@@ -822,7 +822,7 @@
 				\int u dv = u.v - \int v du 
 			\]
 
-			Choose $ u $so that $ \int{v}$ is possible and $ \frac{d}{dx} u $ is simple. See the example:
+			Choose $ u $ so that $ \int{v}$ is possible and $ \frac{d}{dx} u $ is simple. See the example:
 			\[
 				\int x e^x\ dx \qquad \qquad \qquad u = x \qquad du = dx \qquad  v = \int e^x
 			\]
@@ -844,7 +844,7 @@
 
 			Then, you will use integration by parts. Let $ u = t \quad du = dt \quad v = \int cos(t)dt$
 
-			$ \frac{1}{2} t \sin{ t } - \frac{1}{2} \int^{\pi}_{\frac{\pi}{2}} \sin{ t } \cos{ t } dt = t \sin t - \frac{1}{4} [\sin^2{ t }]^{\pi}_{\frac{\pi}{2}} $
+			$ \frac{1}{2} t \sin{ t } + \frac{1}{2} \int^{\pi}_{\frac{\pi}{2}} \sin{ t } dt = \frac{1}{2} ( t \sin t - [\cos{ t }]^{\pi}_{\frac{\pi}{2}} ) $
 
 
 	\end{enumerate}
@@ -936,7 +936,7 @@
 	A fast formula to work with 
 
 	\[
-		\int^{}_{} \frac{1}{x-a^2} dx =   \frac{1}{2a} \ln{ | \frac{ x-a }{ x+a }  |  } + C
+		\int^{}_{} \frac{1}{x^2-a^2} dx =   \frac{1}{2a} \ln{ | \frac{ x-a }{ x+a }  |  } + C
 	\]
 
 	\paragraph{TL;DR}
@@ -962,7 +962,7 @@
 				\int^{}_{} \frac{\sqrt{x+4}}{x} dx
 			\]
 			\subparagraph{Solution}
-			Here, you will do a substitution trick that will convert it to a rational function, $ u = \sqrt{ x+4 } \implies u^2 = x+4 $, $ dx = 2 du $  now the new equation will be
+			Here, you will do a substitution trick that will convert it to a rational function, $ u = \sqrt{ x+4 } \implies u^2 = x+4 $, $ dx = 2 u du $  now the new equation will be
 		\item 	\[ 	\int^{}_{} \frac{u}{u^2-4} 2 u du \]
 			Now, solving as a normal rational function, we'll long divide since the power of top is higher than the bottom
 			\[
@@ -986,10 +986,8 @@
 
 
 	In general, we try to write an integrand involving powers of sine and cosine in a form
-	where we have only one sine factor (and the remainder of the expression in terms of
-	cosine) or only one cosine factor (and the remainder of the expression in terms of sine).
-	The iden­tity $sin^2x+ cos^2x = 1$ enables us to convert back and forth between even pow­
-	ers of sine and cosine.
+	where we have only one sine factor (and the remainder of the expression in terms of	cosine) or only one cosine factor (and the remainder of the expression in terms of sine).
+	The identity $sin^2x+ cos^2x = 1$ enables us to convert back and forth between even powers of sine and cosine.
 	\begin{enumerate}[1.]
 		\item \[ \int \sin^m{ x } \cos^n{ x } \ dx 
 			\]
@@ -1011,7 +1009,7 @@
 			\subparagraph{Remember}
 			\[ \int \tan{ x } dx = \ln{|\sec x|} + C \qquad \qquad \int \sec x dx = \ln {|\sec x + \tan{ x } |} \]
 
-			Go check the proofs not to cry in the next exam bitch.
+		Go check the proofs or the exam will choke you, unless you like that.
 
 		\item Repetitive angles are easy, just use these identities whenever you see them.
 
@@ -1069,7 +1067,7 @@
 		\textbf{u} \leq \frac{\pi}{2} \qquad (In\ domain)
 	\]
 
-	Thus, your solution was right. You may need to validated normally directly after substitution.
+	Thus, your solution was right. You may need to validate normally directly after substitution.
 
 	Now, since you won't have the time to visualize in each question, \textbf{Remember }
 	\[
@@ -1137,18 +1135,18 @@
 	I will list the main set of equations you will normally use for reference.
 
 	\begin{enumerate}[a.]
-		\item $$\int^{\infty}_{a} f(x) dx = \lim_{t \to \infty} \int^{a}_{t} f(x) dx   $$
+		\item $$\int^{\infty}_{a} f(x) dx = \lim_{t \to \infty} \int^{t}_{a} f(x) dx   $$
 		\item $$\int^{b}_{\infty} f(x) dx = \lim_{t \to -\infty} \int^{b}_{t} f(x) dx  $$
 		\item 
 			$$ \int^{\infty}_{-\infty} f(x) dx =
-			\int^{\infty}_{a} f(x) dx + \int^{a}_{\infty} f(x) dx 
+			\int^{\infty}_{a} f(x) dx + \int^{a}_{-\infty} f(x) dx 
 			$$
 		\item $$ \int^{\infty}_{1} \frac{1}{x^p} ,\ p>1 \implies \text{converge, } p 	\leq 1 \implies \text{diverges} $$
 
 
 			This was the normal, or easy type of questions you will be able to momentarily solve and notice. In the other one, suppose you are getting the integral of a function on $ [a,b] $ that has a vertical asymptotic at $ b $ ( $ f $ is on $[a,b)$ ). 
 
-		\item $$ \int^{b}_{a} f(x) dx = \lim_{t 	\to b^-	} \int^{a}_{t} f(x) dx \text{,  If the limit exists as a finite number.}  $$
+		\item $$ \int^{b}_{a} f(x) dx = \lim_{t 	\to b^-	} \int^{t}_{a} f(x) dx \text{,  If the limit exists as a finite number.}  $$
 
 			Also, the same occurs if $ a $ was the one non existent ($f$ is on $ (a,b]$\ ). Besides, if $ f $ has a discontinuity at $ c $ where $ a<c<b $ and both $ \int^{c}_{a} f(x) dx \text{ and } \int^{b}_{c} f(x) dx   $ are convergent, then 
 		\item \[
@@ -1363,8 +1361,16 @@ Here, we can use the fifth limit reminder and get the limit of the absolute valu
 \end{enumerate}
 
 
+\newpage
+
+\section{Misc questions}
+
+\begin{enumerate}[1.]
+\item 
+\end{enumerate}
 
 
-	\includepdf[pages=1,fitpaper]{cheatSheet.pdf}
+
+\includepdf[pages=1,fitpaper]{./cheatSheet.pdf}
 
 \end{document}
