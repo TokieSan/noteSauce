@@ -309,6 +309,85 @@ $ \int^{\infty}_{1} \frac{1}{x^p} ,\ p>1 : \text{converge, } p 	\leq 1 : \text{d
 	$ a^2 = b^2 + c^2 - 2bc(\cos(\theta)) $\newline
 	Quadratic Formula:\newline
 	$ \frac{ -b \pm \sqrt{ b^2-4ac } }{ 2a } $, when $ ax^2+bx+c=0 $ 
+	\section{Integration by parts usage}
+\newline
+$\int u dv = uv - \int vdu $ \newline
+\subsection{Case 1 }
+\newline
+The integration is the product of 2 functions: 1 easy to integrate and the other vanishes by differentiation.
+use Table method: \newline
+\includegraphics[width=4cm, height=2cm]{Tabular-Method-Integration-by-Parts-2}
+\newline
+\subsection{Case 2}
+\newline
+The presence of ln, log, inverse trig, inverse hyp, or any weird function without its derivative
+\newline put u = weird function and dv = the other function(or dx) \newline 
+\subsection{Case 3}
+\newline $\int e^ax * sin bx || cos bx dx  $ \newline
+N.B (does not work with sinh and cosh as they can be factorized) \newline
+you can put any of the functions as u or dv but remain with the same choice till the end. Integrate till you reach the same integration then solve as an algebraic equation.\newline
+\subsection{Case 4: The reduction formula }
+\newline In = solution + In-m \newline
+\section{Trigonometric Integrals}
+\subsection{Sin and Cos: }
+\int sin^n x cos^m x dx
+\newline \newline
+\text{I- n is odd:  use } u = cos x \newline
+\text{II- m is odd: use }u = sin x \newline
+\text{III- m and n are odd: use any u} \newline
+\text{IV- m and n are even: use double angle rule} \newline
+		cos^2 x = 1/2(1+cos2x) \newline 		sin^2 x = 1/2(1-cos2x) \newline
+N.B (\text{use }cos^2 x + sin^2 x = 1)
+\newline 
+\subsection{tan and sec:}
+\int tan^n x sec^m x dx \newline
+\text{I- n is odd:  use }u = sec x \newline
+\text{II- m is even: use }u = tan x \newline
+\text{III- m is even and n is odd: use any u} \newline
+\text{IV- m is odd and n is even: } \newline \text{use integration by parts Case 3.} \newline
+N.B (\text{use }tan^2 x + 1 = sec^2 x) \newline
+\text{- It works with }\int cot^n x csc^m x dx \newline \text{ using }(cot^2 x + 1 = csc^2 x) \newline
+\text{- Sometimes non of the above work} \newline \text{and you should compose it to sin and cos.} \newline
+\section{Trigonometric substitution}
+\begin{center}
+\begin{tabular}{ |c|c|c|c| } 
+ \hline
+ Expression & Substitution & Identity \\ 
+ a^2 - x^2 & x = a sin\theta dx = a cos\theta d\theta & cos^2 x + sin^2 x = 1 \\ 
+  a^2 + x^2 & x = a tan\theta dx = a sec^2 \theta d\theta & tan^2 x + 1 = sec^2 x \\
+ x^2 - a^2 & x = a sec\theta dx = a sec \theta tan \theta d\theta &tan^2 x + 1 = sec^2 x \\
+ \hline
+\end{tabular}
+\end{center}
+\section{Integration by partial fraction}
+- A rational function $\frac{p(x)}{q(x)}$ \newline
+- proper (degree of p(x) $<$ q(x)) if improper use long division \newline
+- q(x) can be factorized \newline
+to get A, B and C you can cover the denominator of each one alone and substitute the x with its root. Or unify the denominator and substitute any three numbers in x. \newline
+\subsection{Case 1}
+q(x) is a product of distinct linear functions. \newline
+Ex: $\int \frac{p(x)}{(x-a)(x+b)(x-c)} dx$ = $\frac{A}{x-a}+\frac{B}{x+b} +\frac{C}{x-c}$ \newline
+\subsection{Case 2}
+q(x) is a product of linear functions but one of them is repeated. \newline
+Ex: $\int \frac{p(x)}{(x+a)(x-b)^2} dx = \frac{A}{x+b} + \frac{B}{(x-c)^2} + \frac{C}{(x-c)}$\newline
+\subsection{Case 3}
+q(x) contain an irreducible and not repeated quadratic function. \newline
+use a polynomial with a degree less then q(x) by 1 \newline
+Ex: $\int \frac{p(x)}{(x-a)(x^2+e^2)} dx = \frac{A}{x-a} + \frac{Bx + C}{x^2 + e^2}$\newline
+use $\int \frac{1}{x^2 + a^2} dx = \frac{1}{a} arctan(\frac{x}{a}) + C$\newline
+\subsection{Case 4}
+Rationalization: when you have p(x) is a root take u = p(x) and proceed. \newline
+\section{Volume}
+\subsection{Disk Method}
+volume of any revolving graph = $\pi \int^b_{a} f(x)^2 dx$\newline where f(x) represents the radius of the disk and a,b are the end points. (When revolving about x the integral is in terms of x and same for the y)
+\subsection{Washer Method}
+Volume of a graph between two functions = $\pi \int^b_{a} f(x)^2 - g(x)^2 dx$ \newline where f(x) represents the outer radius, g(x) the inner radius and a,b are the end points. 
+\newline \newline \newline \newline \newline\newline \newline \newline \newline \newline\newline \newline
+\subsection{Shell Method}
+(When revolving about y the integral is in terms of x and vice versa) \newline V = $ 2\pi \int^b_{a} x f(x) dx$ If two graphs then f(x) will be the difference between the inner and the outer functions.
+\section{Area}
+$\int^b_{a} f(x) - g(x) dx$ Where f(x) is the larger function (further from the axis). \newline
+\section{Improper integration}
 	\newpage
 
 \end{multicols*}
