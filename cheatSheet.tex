@@ -159,22 +159,16 @@ $\int \sqrt{ x^2-a^2 } dx \implies x = a \sec{\theta}$
 
 $ \int^{\infty}_{1} \frac{1}{x^p} ,\ p>1 : \text{converge, } p 	\leq 1 : \text{diverges} $
 
+e.o=o \quad e.e=e \quad o.o=e \quad e+e=e \quad o+o=o
 
-	\textbf{Integration by Parts}\newline
+\textbf{Integration by Parts}\newline
 	$ \int u dv = uv-\int v du $
 
 	\section{Functions/ Identities}
-	\textbf{Most of trig identities work with hyperbolic, exceptions below}\newline  
 	$\sin(\cos^{-1}(x)) = \sqrt{1-x^2}$\newline
 	$\cos(\sin^{-1}(x)) = \sqrt{1-x^2} $\newline
 	$\sec(\tan^{-1}(x)) = \sqrt{1+x^2} $\newline
 	$\tan(\sec^{-1}(x)) \newline = (\sqrt{x^2-1} \: $if$ \: x \ge 1)\newline =(-\sqrt{x^2-1} \: if \: x \le -1)$
-	$\sinh^{-1}(x) = \ln{x+\sqrt{x^2+1}} $\newline
-	$\sinh^{-1}(x) = \ln{x+\sqrt{x^2-1}}, \: x \ge -1 $\newline
-	$\tanh^{-1}(x) = \frac{1}{2}\ln{x+\frac{1+x}{1-x}}, \: 1 < x < -1 $\newline
-	$\sech^{-1}(x) = \ln[{\frac{1+\sqrt{1-x^2}}{x}}], \: 0 < x \le -1 $\newline
-	$\sinh(x) = \frac{e^{x}-e^{-x}}{2} $\newline
-	$\cosh(x) = \frac{e^{x}+e^{-x}}{2} $\newline
 	$ \sin^2(x)+\cos^2(x) = 1 $\newline
 	$ 1+\tan^2(x) = \sec^2(x) $\newline
 	$ 1+\cot^2(x) = \csc^2(x) $\newline
@@ -183,7 +177,6 @@ $ \int^{\infty}_{1} \frac{1}{x^p} ,\ p>1 : \text{converge, } p 	\leq 1 : \text{d
 	$ \tan(x\pm y) = \frac{\tan(x)\pm\tan(y)}{1 \mp \tan(x)\tan(y)} $\newline
 	$ \sin(2x) = 2\sin(x)\cos(x) $\newline
 	$ \cos(2x) = \cos^{2}(x) - \sin^{2}(x) $\newline
-	$ \cosh(n^{2}x)-\sinh^{2}x = 1 $\newline
 	$ 1+\tan^2(x) = \sec^2(x) $\newline
 	$ 1+\cot^2(x) = \csc^2(x) $\newline
 	$ \sin^2(x) = \frac{1-\cos(2x)}{2} $\newline
@@ -192,11 +185,23 @@ $ \int^{\infty}_{1} \frac{1}{x^p} ,\ p>1 : \text{converge, } p 	\leq 1 : \text{d
 	$ \sin(-x) = -\sin(x) $\newline
 	$ \cos(-x) = \cos(x) $\newline
 	$ \tan(-x) = -\tan(x) $\newline
-	$ \cosh^2(x) - \sinh^2(x) = 1 $\newline
-	$ 1-\tanh^2(x) = \sech^2(x) $
 	$ \sin{ A } \cos{ B } = \frac{1}{2} ( \sin{( A-B )} + \sin{( A+B )}   ) $
 	$ \sin{ A } \sin{ B } = \frac{1}{2} ( \cos{( A-B )} - \cos{( A+B }   )) $
 	$ \cos{ A } \cos{ B } = \frac{1}{2} ( \cos{ (A-B) } + \cos{ (A+B) }   ) $
+
+\noindent\hrulefill 
+
+	$\sinh(x) = \frac{e^{x}-e^{-x}}{2} $\newline
+	$\cosh(x) = \frac{e^{x}+e^{-x}}{2} $\newline
+	$ \cosh^{2}x-\sinh^{2}x = 1 $\newline
+	$ 1-\tanh^2(x) = \sech^2(x) $
+	$\sinh^{-1}(x) = \ln{x+\sqrt{x^2+1}} $\newline
+	$\sinh^{-1}(x) = \ln{x+\sqrt{x^2-1}}, \: x \ge -1 $\newline
+	$\tanh^{-1}(x) = \frac{1}{2}\ln{x+\frac{1+x}{1-x}}, \: 1 < x < -1 $\newline
+	$\sech^{-1}(x) = \ln[{\frac{1+\sqrt{1-x^2}}{x}}], \: 0 < x \le -1 $\newline
+	$ \cosh^2(x) - \sinh^2(x) = 1 $\newline
+	$ \sinh{ (A+B) } = \sinh A \cosh B + \cosh A \sinh B  $
+	$ \cosh{ (A+B) } = \cosh A \cosh B + \sinh A \sinh B  $
 	\subsection{3D}
 	given two points:\newline
 	$ (x_1, y_1, z_1) $ and $ (x_2, y_2, z_2)$,\newline
@@ -309,6 +314,15 @@ $ \int^{\infty}_{1} \frac{1}{x^p} ,\ p>1 : \text{converge, } p 	\leq 1 : \text{d
 	$ a^2 = b^2 + c^2 - 2bc(\cos(\theta)) $\newline
 	Quadratic Formula:\newline
 	$ \frac{ -b \pm \sqrt{ b^2-4ac } }{ 2a } $, when $ ax^2+bx+c=0 $ 
+	
+	\subsection{Logarithmic}
+	$\log(xy)=\log(x)+\log(y)$
+
+	$\log(\frac{x}{y})=\log(x)-\log(y)$
+	$\log(^y\sqrt{x}) = \frac{\log(x)}{y}$
+	$\log_{b}(1)=0 $ 
+	$\log_{a}(x)=\frac{1}{\log_x(a)}$
+	
 	\newpage
 
 \end{multicols*}
