@@ -310,27 +310,25 @@ $ \int^{\infty}_{1} \frac{1}{x^p} ,\ p>1 : \text{converge, } p 	\leq 1 : \text{d
 	Quadratic Formula:\newline
 	$ \frac{ -b \pm \sqrt{ b^2-4ac } }{ 2a } $, when $ ax^2+bx+c=0 $ 
 	\section{Integration by parts usage}
-\newline
 $\int u dv = uv - \int vdu $ \newline
 \subsection{Case 1 }
-\newline
 The integration is the product of 2 functions: 1 easy to integrate and the other vanishes by differentiation.
 use Table method: \newline
 \includegraphics[width=4cm, height=2cm]{Tabular-Method-Integration-by-Parts-2}
 \newline
 \subsection{Case 2}
-\newline
+
 The presence of ln, log, inverse trig, inverse hyp, or any weird function without its derivative
 \newline put u = weird function and dv = the other function(or dx) \newline 
 \subsection{Case 3}
-\newline $\int e^ax * sin bx || cos bx dx  $ \newline
+ $\int e^ax * sin bx || cos bx dx  $ \newline
 N.B (does not work with sinh and cosh as they can be factorized) \newline
 you can put any of the functions as u or dv but remain with the same choice till the end. Integrate till you reach the same integration then solve as an algebraic equation.\newline
 \subsection{Case 4: The reduction formula }
-\newline In = solution + In-m \newline
+ In = solution + In-m \newline
 \section{Trigonometric Integrals}
 \subsection{Sin and Cos: }
-\int sin^n x cos^m x dx
+$\int sin^n x cos^m x dx$
 \newline \newline
 \text{I- n is odd:  use } u = cos x \newline
 \text{II- m is odd: use }u = sin x \newline
@@ -353,9 +351,9 @@ N.B (\text{use }tan^2 x + 1 = sec^2 x) \newline
 \begin{tabular}{ |c|c|c|c| } 
  \hline
  Expression & Substitution & Identity \\ 
- a^2 - x^2 & x = a sin\theta dx = a cos\theta d\theta & cos^2 x + sin^2 x = 1 \\ 
-  a^2 + x^2 & x = a tan\theta dx = a sec^2 \theta d\theta & tan^2 x + 1 = sec^2 x \\
- x^2 - a^2 & x = a sec\theta dx = a sec \theta tan \theta d\theta &tan^2 x + 1 = sec^2 x \\
+ a^2 - x^2 & x = a sin\theta \text{ | } dx= a cos\theta d\theta & cos^2 x + sin^2 x = 1 \\ 
+  a^2 + x^2 & x = a tan\theta \text{ | } dx = a sec^2 \theta d\theta & tan^2 x + 1 = sec^2 x \\
+ x^2 - a^2 & x = a sec\theta \text{ | } dx = a sec \theta tan \theta d\theta &tan^2 x + 1 = sec^2 x \\
  \hline
 \end{tabular}
 \end{center}
@@ -382,13 +380,51 @@ Rationalization: when you have p(x) is a root take u = p(x) and proceed. \newlin
 volume of any revolving graph = $\pi \int^b_{a} f(x)^2 dx$\newline where f(x) represents the radius of the disk and a,b are the end points. (When revolving about x the integral is in terms of x and same for the y)
 \subsection{Washer Method}
 Volume of a graph between two functions = $\pi \int^b_{a} f(x)^2 - g(x)^2 dx$ \newline where f(x) represents the outer radius, g(x) the inner radius and a,b are the end points. 
-\newline \newline \newline \newline \newline\newline \newline \newline \newline \newline\newline \newline
+\newline \newline \newline \newline \newline\newline \newline \newline \newline \newline
 \subsection{Shell Method}
 (When revolving about y the integral is in terms of x and vice versa) \newline V = $ 2\pi \int^b_{a} x f(x) dx$ If two graphs then f(x) will be the difference between the inner and the outer functions.
 \section{Area}
 $\int^b_{a} f(x) - g(x) dx$ Where f(x) is the larger function (further from the axis). \newline
 \section{Improper integration}
-	\newpage
+\subsection{Case 1}
+$\int^\infty_{a} f(x) = \lim_{t \to \infty} \int^t_{a} f(x)$ \newline
+$\int^b_{-\infty} f(x) = \lim_{t \to -\infty} \int^b_{t} f(x)$\newline
+$\int^\infty_{-\infty} f(x) = \lim_{t \to \infty} \int^t_{a} f(x) + \lim_{v \to -\infty} \int^b_{v} f(x)$\newline
+\subsection{Case 2}
+f(x) is continuous on [a, b)$\int^b_{a} f(x) = \lim_{t \to b^-} \int^t_{a} f(x)$\newline
+f(x) is continuous on (a, b]$\int^b_{a} f(x) = \lim_{t \to a^+} \int^b_{t} f(x)$\newline
+f(x) is discontinuous on a point c in [a,b] $\int^b_{a} f(x) = \lim_{t \to c^-} \int^t_{a} f(x) + \lim_{t \to c^+} \int^b_{t} f(x)$\newline
+\subsection{Comparison}
+$g(x) \le f(x)$ \newline if $\int^\infty_{a} f(x) dx$ is convergent then $\int^\infty_{a} g(x) dx$ is convergent\newline if $\int^\infty_{a} g(x) dx$ is divergent then $\int^\infty_{a} f(x) dx$ is divergent.
+\section{Sequence}
+ $\lim_{n \to -\infty} an = L$ if exists then the sequence is convergent if not it is divergent. \newline
+ $\lim_{n \to -\infty} |an| = 0$ Then $\lim_{n \to -\infty} an = 0$ \newline
+ if $\lim_{n \to -\infty} an = L$ then $\lim_{n \to -\infty} f(an) = f(L)$ \newline
+ The sequence is bounded above if there is a number M such that $an < M$ for every n. \newline
+ The sequence is bounded below if there is a number m such that $an > m$ for every n. \newline
+ The sequence is monotonic if it is only decreasing or increasing. \newline
+ If the sequence is bounded and monotonic then it is convergent. \newline
+    \newpage
+\section{Some Limit Rules}
+$\lim_{x \to \infty} e^x = \infty$ \newline
+$\lim_{x \to -\infty} e^x = 0$ \newline
+$\lim_{x \to \infty} ln(x) = \infty$ \newline
+$\lim_{x \to 0^+} ln(x) = -\infty$ \newline
+$\lim_{x \to \infty} \frac{c}{x^r} = 0$ when $r > 0$ \newline
+$\lim_{x \to -\infty} \frac{c}{x^r} = 0$ when $r > 0$ & $x^r$ is real on $x < 0$ \newline
+$\lim_{x \to \pm\infty} x^r = \infty$ when r is even\newline
+$\lim_{x \to \infty} x^r = \infty$ and $\lim_{x \to -\infty} x^r = -\infty$ when r is odd\newline
+Use l'hospital's rule when ( $\frac{0}{0}$, $\frac{\infty}{\infty}$, $0 \infty$, $1^\infty$, $\infty^0$, $0^0$, $\infty - \infty$ )\newline
+Use squeeze theorem with trig and e^x \newline
+\section{Randoms}
+\includegraphics[width=5cm, height=3cm]{sinh} \newline
+\includegraphics[width=5cm, height=3cm]{sinh2} \newline
+\includegraphics[width=5cm, height=3cm]{cosh} \newline
+\includegraphics[width=5cm, height=3cm]{sin} \newline
+\includegraphics[width=5cm, height=3cm]{arcsin} \newline
+\includegraphics[width=5cm, height=3cm]{arcsinh} \newline
+\includegraphics[width=5cm, height=3cm]{graphs} \newline
+
 
 \end{multicols*}
 \end{document}
