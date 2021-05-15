@@ -1362,14 +1362,210 @@ Here, we can use the fifth limit reminder and get the limit of the absolute valu
 		
 \end{enumerate}
 
+\newpage
+\section{Series}
+A series $ s_n $  is  $\sum^{\infty}_{n=1} a_n$, where $ a_n $ is an infinite sequence.
+If $\lim_{n \to \infty} = s$, then $s_n$ converges. 
+
+\paragraph{Geometric series}
+It is the series that is obtained by increasing a common ratio $ r $, For instance
+\[
+	s_n = a + ar + ar^2 + ar^3 + .... + ar^{n-1} = \sum ar^{n-1} \qquad a \neq 0
+\]
+\[
+	s_n = \lim_{n \to \infty} \frac{ a(1-r^n) }{ 1-r }
+\]
+$$ \sum ar^{n-1} = \frac{ a }{ 1-r }  \qquad |r|<1 $$
+\begin{center}
+If $ |r| \geq 1 $ , the geometric series diverges.
+\end{center}
+
+Always notice that it is n-1 not n, so if it is to the power of n, $ a = \text{excess} \times r $ 
+\paragraph{Examples}
+
+\begin{enumerate}[1.]
+\item 	Calculate $ \sum 2^{2n}3^{1-n}$ 
+\subparagraph{Solution}
+Let's do some algebric manipulations to make it looks like this
+\[
+	\sum (2^2)^n 3^{-(n-1)} = \sum \frac{ 4^n }{3^{n-1} } = \sum 4 \left(\frac{4}{3}\right)^{n-1}
+\]
+Now, it is normal geometric series with $r = \frac{4}{3}$, since $ r>1 $, it diverges.
+
+\item $$\sum \frac{1}{n(n+1)}$$
+\subparagraph{Solution} 
+Since this one is not geometric, let's write the first few terms to spot a pattern
+\[
+	s_n=\frac{1}{1 \times 2} + \frac{1}{2 \times 3} + ... + \frac{1}{n(n+1)}
+\]
+Now, let's try to use partial fraction decomposition to make it simpler
+\[
+	\frac{1}{i(i+1)} = \frac{1}{i} - \frac{1}{i+1}
+\]
+		Thus, we have $$\sum \frac{1}{i} - \frac{1}{i+1} = (1-\frac{1}{2}) + (\frac{1}{2}-\frac{1}{3}) + (\frac{1}{3} - \frac{1}{4}) + ... + (\frac{1}{n} - \frac{1}{n+1})$$ 
+
+		We notice that the second part of each term cancels with the first part of the term after it, thus the whole thing will be only
+		\[
+			1-\frac{1}{n+1}
+		\]
+		And by taking the limit
+		\[
+			\lim_{n \to \infty}1- \frac{1}{n+1} = 1
+		\]
+\end{enumerate}
+
+\paragraph{Divergence test}
+If $ \lim_{n \to \infty} \neq 0 $ then the series $ \sum a_n $ diverges.
+
+\paragraph{Note} $$ a_n = s_n - s_{n-1}$$ 
+
+
+\noindent\hrulefill 
+
+\paragraph{Integral Test}
+If $ f $ is continuous, positive, and decreasing function on $ [1,\infty) $ and $ a_n = f(n) $. Then series $ \sum_{n=1}^{\infty} a_n$ converge if the improper integral is convergent. 
+
+\subparagraph{TL;DR}
+If $ \int^{1}_{\infty} f(x) dx \text{converges, then } \sum a_n $ converges. And vice versa.  
+
+\subparagraph{Note}
+You don't have to start n from 1 here, you can start it from any digit and start the integral from the same digit.
+
+\subparagraph{p-series}
+$ \sum \frac{1}{n^p} $ converge if $ p>1 $ and diverges if $ p \leq 1 $ 
+
+\subparagraph{Note} \[
+	\sum a_n \neq \int_{1}^{\infty} f(x) dx  
+\]
+\subparagraph{Remainder/ Error estimate} If a function $ f(x) = a_k $ 
+and $ f $ is continuous, positive, and decreasing for $ x \geq n $ and $ \sum a_n $ converge. 
+If $ R_n = s - s_n	$, then
+\[
+	\int_{n+1}^{\infty} f(x) dx \leq R_n \leq \int_{n}^{\infty} f(x) dx  
+\]
+\[
+	s_n+\int_{n+1}^{\infty} f(x) dx \leq s \leq s_n + \int_{n}^{\infty} f(x) dx  
+\]
+
+
+\noindent\hrulefill 
+\newpage
+\paragraph{Comparison Tests}
+Suppose $ \sum a_n, \sum b_n $ are positive series
+
+If $ \sum b_n $ converge and $ a_n \leq b_n $ for all n, then $ \sum a_n $ converge.
+
+If $ \sum b_n $ diverge and $ a_n \geq b_n $  for all n, then $ \sum a_n $ diverge.
+
+\subparagraph{Limit Comparison Test}
+Suppose $ \sum a_n, \sum b_n $ are positive series
+\[
+	\lim_{n \to \infty} \frac{a_n}{b_n}=c
+\] And c is finite $ c>0 $, then either both series diverge or both converge.
+
+\subparagraph{Remainder/ ErRor} 
+Let $ T_n = t - t_n$ the error of $b_n$, since
+$ a_n \leq b_n  $ for all $ n $ , we have $ R_n \leq T_n $. If $ \sum b_n  $ is a $ p- $series, we can estimate the remainder as in the previous subsection. If it was a geometric series
+, then $T_n$ is the summation exactly. 
+
+
+\noindent\hrulefill 
+
+\paragraph{Alternating Series}
+If $ \sum (-1)^{n-1}b_n = b_1 -b_2+b_3-b_4 ... b_n>0 $ ($b_n= |a_n|$) satisfies:
+\begin{equation*}
+	b_{n+1} \leq b_n \qquad \text{for all (Function is decreasing)} n
+\end{equation*}
+$$	\lim_{n \to \infty} b_n = 0$$
+Then, the series is convergent
+
+\subparagraph{Estimation}
+If $ s = \sum (-1)^{n-1}b_n $, where $ b_n>0 $  is a sum of alternating series that satisfy the conditions mentioned above, then 
+\[
+	| R_n| = | s - s_n | \leq b_{n+1}
+\]
+
+
+\noindent\hrulefill 
+
+\paragraph{Absolute Convergence}
+A series $\sum a_n$ is absolutely convergent (and convergent) if the series $ \sum |a_n| $ converges. A series is conditionally convergent if it is convergent but not absolutely convergent.
+
+\paragraph{Ratio Test}
+
+Let's consider a limit $ L $ 
+\[
+	L = \lim_{n \to \infty} | \frac{ a_{n+1} }{ a_n } |
+\]
+If $ L<1 $  the series is absolutely convergent. If $ L>1 $, the series is divergent. If $ L=1 $ , the test is inconclusive, aka pathetic.
+
+\subparagraph{Question}
+Test convergence of $$ \sum \frac{ n^n }{ n! }	$$
+
+\subparagraph{Answer}
+Using the ratio test, you will find that you are calculating limit as n goes to $\infty$ of $ \left[ \frac{n+1}{n}	 \right]^n  $ which equals $ e $, meaning that the series diverges. However, use the normal divergence test as sequence doesn't approach 0.
+
+\paragraph{Root Test}
+\[
+	\text{Let } L = \sqrt[n]{|a_n|}
+\]
+If $ L<1 $  the series is absolutely convergent. If $ L>1 $, the series is divergent. If $ L=1 $ , the test is inconclusive, aka pathetic.
+
+\subparagraph{Note}
+$$ \cos{ (n \pi) } = (-1)^n	$$
 
 \newpage
 
-\section{Misc questions}
-
-\begin{enumerate}[1.]
-\item 
+\paragraph{Power Series}
+\[
+	\text{For a given power series} \sum c_n (x-a)^n \text{ there are only three possibilities: }
+\]
+\begin{enumerate}[i.]
+\item The series converges only when $x=a$
+\item The series converges for all x
+\item There is a positive number $R$ (radius of convergence) that series converges if $ |x-a|<R $ and diverge if $ |x-a|>R $  
 \end{enumerate}
+
+Radius is found using Ratio test or sometimes Root test. Note that they will always fail when $ x $ is an endpoint of the interval of convergence, so the endpoints must be checked with some other test.
+
+\noindent\hrulefill 
+
+\paragraph{Representations of functions as power series}
+\[
+	\frac{1}{1-x}=1+x+x^2+x^3+...= \sum_{n=0}^{\infty} x^n \qquad |x|<1
+\]
+
+% 752
+
+More formally, if a power series $ \sum_{n=0}^{\infty} c_n(x-a)^n $ has $ R>0 $, then $ f $ is defined by
+\[
+	f(x) = c_0 + c_1(x-a) + c_2(x-a)^2 + ... = \sum c_n(x-a)^n
+\]
+and it is differential and continuous on the interval $ (a-R,a+R) $
+\[
+	f'(x)=\sum_{n=1}^{\infty} nc_n(x-a)^{n-1}
+\]
+\[
+	\int_{}^{} f(x) dx = C + \sum_{n=0}^\infty c_n \frac{ (x-a)^{n+1} }{ n+1 } 
+\]
+\[
+\frac{d}{dx} \left[ \sum_{n=0}^\infty c_n(x-a)^n \right] =  \sum_{n=0}^{\infty} \frac{d}{dx}[c_n(x-a)^n] 
+\]
+\[
+	\int_{}^{} \left[ \sum_{n=0}^\infty c_n(x-a)^n \right] dx=
+	 \sum_{n=0}^{\infty} \int_{}^{} c_n(x-a)^n dx  
+\]
+
+Note, the radii of convergence of the derivative and integral are both $ R $, but note that does not mean that the interval of convergence stays the same. (endpoints may change)
+
+\[
+	\arctan(x) = \int_{}^{} \frac{1}{1+x^2} dx = \int_{}^{} (1-x^2+x^4-x^6+...) dx   = 
+	 \sum_{n=0}^{\infty} (-1)^n \frac{ x^{2n+1} }{ 2n+1 } \qquad R=1 
+\]
+
+\[
+	\ln{(1+x)} = \sum_{n=1}^{\infty} (-1)^{n-1} \frac{ x^n }{ n } +C  \qquad \ln{(1-x)}=-  \sum_{n=1}^{\infty} \frac{ x^n }{ n } \qquad |x|<1
+\]
 
 
 
